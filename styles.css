@@ -1,0 +1,200 @@
+
+body{ 
+background-color: #000000 ;
+font-family: gagalin;
+color:white;
+padding:0%;
+margin: 0%;
+background-image:   url();
+background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.NavBar{
+background-color: #1d1d1d;
+width: -webkit-fill-available;
+height: 40px;
+align-items: center;
+display: flex;
+
+}
+.NavBarButton{
+	border:0px;
+	margin: 0px;
+	border-radius: 0px;
+	height: 40px;
+	color: white;
+	background-color: #555;
+}
+.NavBarButton:hover{
+	background-color: #111111;
+	color: #ff1900;
+	font-weight: 800;
+}
+section{
+width: 60%;
+position:relative;
+background-color: #111111  ;
+padding-left:0px;
+padding-right:0px;
+margin-left: 20%;
+margin-right: 20%;
+border-top: 2px red solid;
+}
+dt{
+	font-size: 18px;
+}
+dt:hover{
+	color:#ff1900;
+}
+.menus{
+	position:relative;
+	background-color: #111111  ;
+	padding-left:0px;
+	padding-right:0px;
+	height:600px;
+}
+.paddingText{
+	padding-left:45px;
+	padding-right:45px;
+	padding-bottom: 20px;
+	width:500px;
+}
+
+.Title{
+	background-image: linear-gradient( 173deg, red 60%, RGBA(0,0,0,0) 70%);
+				width: fit-content;
+				color: white;
+				padding-right: 300px;
+				font-weight: bold;
+				font-size: larger;
+				font-family: Gagalin;
+				padding-left: 5%;
+				margin-top: 0;
+}
+.SlideMenuItems{
+
+display:inline-block;
+width:300px;
+align-content: center;
+align-items: center;
+justify-items: center;
+}
+
+.Center{
+position:relative;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+.slider1, .slider2, .slider3 {
+	display: none;
+	align-items: center;
+	flex-direction: column;
+	top: 230px;
+	width:300px;
+	position: relative;
+	text-align: center;
+	font-family: "Gagalin";
+}
+
+.SlideMenu1, .SlideMenu2,.SlideMenu3{
+position: absolute;
+top:0;
+font-size: large;
+vertical-align: sub;
+height: 200px;
+width: 200px;
+background-color: #555;
+border-radius: 50%;
+line-height:200px;
+text-align:center;
+margin-left: 50px;
+margin-right: 50px;
+border: 2px white solid;
+font-family: "Gagalin";
+
+
+}
+.SlideMenu1:hover, .SlideMenu2:hover,.SlideMenu3:hover{
+color: #ff1900;
+background-color: #6666;
+border: 2px red solid;
+
+}
+.MenuDetailsSections{
+	display: flex;
+	flex-direction: row;
+}
+.ProductBut{
+	height: 28px;
+	color: white;
+	background-color: #8888;
+	border: 0;
+	border-radius: 0;
+	border-right: 1px grey solid;
+}
+.ProductBut:hover{
+	color: red;
+	background-color: #5555;
+
+}
+.ProductTitle{
+	font-size: 30px;
+	color: white;
+	font-weight: 700;
+}
+.DetailsMenu1{
+	display: block;
+}
+.DetailsMenu2,.DetailsMenu3{
+	display: none;
+}
+footer{
+	position: absolute;
+    width: -webkit-fill-available;
+    bottom: 100px;
+}
+.checked {
+  color: red;
+}
+.ProductImg{
+	width:200px;
+	height: 200px;
+}
+.ProductHead{
+ margin-left: 20%;
+}
+.ProductInformation{
+	display: flex;
+	flex-direction: row;
+	margin-bottom:25px;
+	margin-top: 15px;
+}
+.ProductDetails{
+	margin-left:20px;
+	margin-top: 15px;
+
+}
+.ProductbuyBut{
+	margin-top: 40px;
+	border: 0;
+	color: white;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 5px;
+	background-color: #7777;
+	width:150px;
+	height:28px;
+}
+.ProductbuyBut:hover{
+	color: red;
+	background-color: #5555;
+	border: 1px white solid;
+	
+}
+.ProductSection{
+	border-top: 2px red solid;
+	border-bottom: 1px white solid;
+}
