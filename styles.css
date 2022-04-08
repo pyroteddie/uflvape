@@ -26,12 +26,16 @@ justify-content: center;
 	border-radius: 0px;
 	height: 40px;
 	color: white;
-	background-color: #555;
+	background-color: #1d1d1d;
+	font-family: Gagalin;
+	font-size: 20px;
 }
 .NavBarButton:hover{
-	background-color: #111111;
+	background-color: #1d1d1d;
 	color: #ff1900;
 	font-weight: 800;
+	font-family: Gagalin;
+	text-shadow: 1px 1px black;
 }
 section{
 width: 60%;
@@ -69,11 +73,12 @@ dt:hover{
 				width: fit-content;
 				color: white;
 				padding-right: 300px;
-				font-weight: bold;
-				font-size: larger;
+				font-size: 25px;
 				font-family: Gagalin;
 				padding-left: 5%;
 				margin-top: 0;
+				text-shadow: 2px 2px black;
+				letter-spacing: 2px
 }
 .SlideMenuItems{
 
