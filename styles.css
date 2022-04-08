@@ -17,6 +17,7 @@ width: -webkit-fill-available;
 height: 40px;
 align-items: center;
 display: flex;
+justify-content: center;
 
 }
 .NavBarButton{
