@@ -12,12 +12,13 @@ background-position: center; /* Center the image */
 }
 
 .NavBar{
-background-color: #1d1d1d;
-width: -webkit-fill-available;
-height: 40px;
-align-items: center;
-display: flex;
-justify-content: center;
+	background-color: #1d1d1d;
+	width: 60%;
+	height: 40px;
+	align-items: end;
+	display: flex;
+	justify-content: center;
+	margin: auto
 
 }
 .NavBarButton{
@@ -50,9 +51,11 @@ border-top: 2px red solid;
 dt{
 	font-size: 18px;
 	font-Family:gagalin;
+	text-shadow: 1px 4px #ff1900;
 }
 dt:hover{
 	color:#ff1900;
+	text-shadow: 1px 4px White;
 }
 .menus{
 	position:relative;
@@ -66,6 +69,11 @@ dt:hover{
 	padding-right:45px;
 	padding-bottom: 20px;
 	width:500px;
+
+}
+p{
+	padding:0;
+	margin:0;
 }
 
 .Title{
@@ -90,10 +98,10 @@ justify-items: center;
 }
 
 .Center{
-position:relative;
-display: flex;
-justify-content: space-evenly;
-align-items: center;
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
 }
 .MenuImg{
 	height:300px;
