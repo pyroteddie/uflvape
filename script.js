@@ -63,3 +63,25 @@ function Product3Show() {
 
 }
 }
+
+function Drinkshover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/3.png');
+}
+
+function Drinksunhover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/2.png');
+}
+function Dessertshover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/5.png');
+}
+
+function Dessertsunhover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/4.png');
+}
+function Fruitshover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/7.png');
+}
+
+function Fruitsunhover(element) {
+  element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/6.png');
+}
