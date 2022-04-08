@@ -169,9 +169,13 @@ border: 2px red solid;
 	display: none;
 }
 footer{
-	position: absolute;
-    width: -webkit-fill-available;
-    bottom: 100px;
+	border-top: 2px red solid;
+	background-color: #111111;
+	border-bottom: 1px white solid;
+	width: 60%;
+	margin: auto;
+	display: flex;
+	align-self: flex-end;
 }
 .checked {
   color: red;
@@ -182,6 +186,7 @@ footer{
 }
 .ProductHead{
  margin-left: 20%;
+ height:500px;
 }
 .ProductInformation{
 	display: flex;
@@ -213,8 +218,10 @@ footer{
 }
 .ProductSection{
 	border-top: 2px red solid;
+	background-color: #111111;
 	border-bottom: 1px white solid;
 }
+
 @media only screen and (max-width: 600px) {
 	.MenuImg{
 		height:200px;
