@@ -88,6 +88,9 @@ display: flex;
 justify-content: space-evenly;
 align-items: center;
 }
+.MenuImg{
+	height:200px;
+}
 .slider1, .slider2, .slider3 {
 	display: none;
 	align-items: center;
