@@ -5,10 +5,10 @@ font-family: gagalin;
 color:white;
 padding:0%;
 margin: 0%;
-background-image:   url();
+background-image:   url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/Background.png');
 background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-repeat: repeat; /* Do not repeat the image */
+  background-size: 150px; /* Resize the background image to cover the entire container */
 }
 
 .NavBar{
@@ -89,7 +89,7 @@ justify-content: space-evenly;
 align-items: center;
 }
 .MenuImg{
-	height:200px;
+	height:300px;
 }
 .slider1, .slider2, .slider3 {
 	display: none;
@@ -199,4 +199,9 @@ footer{
 .ProductSection{
 	border-top: 2px red solid;
 	border-bottom: 1px white solid;
+}
+@media only screen and (max-width: 600px) {
+	.MenuImg{
+		height:200px;
+	}
 }
