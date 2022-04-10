@@ -7,7 +7,7 @@ function SignIn(){
   .then((userCredential) => {
     var user = userCredential.user;
     
-    sessionStorage.setItem("SignedIn", True);
+    sessionStorage.setItem("SignedIn", "True");
     location.replace("./admin_User.html");
     
   })
