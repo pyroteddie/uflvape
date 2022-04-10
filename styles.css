@@ -221,6 +221,10 @@ footer{
 	background-color: #111111;
 	border-bottom: 1px white solid;
 }
+.SignInBox{
+	display: grid;
+  justify-content: center;
+}
 
 @media only screen and (max-width: 600px) {
 	.MenuImg{

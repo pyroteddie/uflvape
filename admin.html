@@ -11,25 +11,41 @@ h1{
   display:flex;
   font-size:40px;
 }
+.SignInContainer{
+  width: 60%;
+  position:relative;
+  background-color: #111111  ;
+  padding-left:0px;
+  padding-right:0px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-top: 2px red solid;
+}
+.SignInBox{
+	display: grid;
+  justify-content: center;
+}
 
 </style>
-<h1 >UFL Vape</h1>
+<h1 >UFL Admin</h1>
 <div class="NavBar">
-<button class="NavBarButton" onclick="location.href='../index.html'">HOME</button>
-<button class="NavBarButton" onclick="location.href='../pages/ComingSoon.html'">COMING SOON</button>
-<button class="NavBarButton" onclick="location.href='../pages/ContactUs.html'">CONTACT US</button>
+<button class="NavBarButton" onclick="location.href='./index.html'">HOME</button>
+<button class="NavBarButton" onclick="location.href='./pages/ComingSoon.html'">COMING SOON</button>
+<button class="NavBarButton" onclick="location.href='./pages/ContactUs.html'">CONTACT US</button>
 </div>
 
 </head>
 <body>
+<div class="SignInContainer">
 <div>Sign In</div>
-<div>
+<div class="SignInBox">
 <label>Email</label>
 <input type="email">
 <label>Password</label>
 <input type="password">
 </div>
-
+<button>Sign In</button>
+</div>
 </body>
 </html>
 
