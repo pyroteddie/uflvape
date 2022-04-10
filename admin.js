@@ -6,8 +6,9 @@ function SignIn(){
   firebase.auth().signInWithEmailAndPassword(Email, Password)
   .then((userCredential) => {
     var user = userCredential.user;
-    location.href='./admin_User.html'
     sessionStorage.setItem("SignedIn", True);
+    location.href='./admin_User.html'
+    
   })
   .catch((error) => {
     var errorCode = error.code;
