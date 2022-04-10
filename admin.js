@@ -18,3 +18,9 @@ function SignIn(){
     sessionStorage.setItem("SignedIn", null);
   });
 }
+
+var HomePageText = firebase.database().ref('HomePage/HomeNews/');
+HomePageText.on('value', (snapshot) => {
+  const data = snapshot.val();
+  document.getElementById("HomePageNews").value = data;
+});

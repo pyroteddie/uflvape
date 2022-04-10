@@ -17,3 +17,9 @@ starCountRef.on('value', (snapshot) => {
   snapshot.child("asduhfsdf").child("last").val();
     console.log(data)
 });
+
+var HomePageText = firebase.database().ref('HomePage/HomeNews/');
+HomePageText.on('value', (snapshot) => {
+  const data = snapshot.val();
+  document.getElementById("HomePageText").innerHTML = data;
+});
