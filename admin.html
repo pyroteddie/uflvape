@@ -36,6 +36,7 @@ h1{
     border: 1px solid red;
     margin: 5px;
     justify-self:center;
+    font-size: 18px;
 }
 .SignInText{
   font-size:20px;
@@ -56,11 +57,11 @@ h1{
 <div class="SignInText">Sign In</div>
 <div class="SignInBox">
 <label>Email</label>
-<input type="email">
+<input id="SignInEmail" type="email">
 <label>Password</label>
-<input type="password">
+<input id="SignInPassword" type="password">
 </div>
-<button class="SignInButton">Sign In</button>
+<button class="SignInButton" onclick="SignIn()">Sign In</button>
 </div>
 </body>
 </html>

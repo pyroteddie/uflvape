@@ -1,5 +1,8 @@
 
-function SignIn(Email, Password){
+function SignIn(){
+  var Email = document.getElementById("SignInEma").value
+  var Password = document.getElementById("SignInPassword").value
+
   firebase.auth().signInWithEmailAndPassword(Email, Password)
   .then((userCredential) => {
     // Signed in
