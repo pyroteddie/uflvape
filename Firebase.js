@@ -15,6 +15,5 @@ var starCountRef = firebase.database().ref('Products/asduhfsdf/');
 starCountRef.on('value', (snapshot) => {
   const data = snapshot.val();
   snapshot.child("asduhfsdf").child("last").val();
-  
-  console.log(data)
+    console.log(data)
 });
