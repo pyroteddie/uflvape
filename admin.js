@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let ProductSelected = -1;
+let ImgURLUploaded = null;
 
 function SignIn(){
   var Email = document.getElementById("SignInEmail").value
@@ -51,20 +52,85 @@ query.once("value")
 
 function ItemSelected(ID){
   ProductSelected = ID;
+  var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
+  GetEditProductInfo.on('value', (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+  document.getElementById("edProImg").src = data.Image;
+  document.getElementById("edProName").value = data.Name;
+  document.getElementById("edProDis").value = data.About;
+  document.getElementById("edProIng").value = data.Ingredients;
+  document.getElementById("edProID").value = data.ID;
+  document.getElementById("edProRate").value = data.Rating;
+  document.getElementById("edProCat").value = data.Category;
+  
+
+});
+
 return ProductSelected
 }
-//PEditCard
 
-//PAddCard
+var uploader = document.getElementById('uploader');
+var fileButton = document.getElementById('edProImgUpload');
+fileButton.addEventListener('change', function(e){
+var file = e.target.files[0];
+var storageRef = firebase.storage().ref('img/'+file.name);
+var task = storageRef.put(file);
+task.on('state_changed', function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+  uploader.value = percentage;
+
+}, function error(err) {
+
+
+},function complete() {
+task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+  ImgURLUploaded= downloadURL;
+});
+});
+}); 
+
+function RemoveProduct(){
+  var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
+  GetEditProductInfo.remove();
+
+}
+
+function AddProduct(){
+
+  var GetEditProductInfo = firebase.database().ref('Products/' + document.getElementById("AddProID").value);
+  GetEditProductInfo.set({
+  Name: document.getElementById("AddProName").value,
+  About: document.getElementById("AddProDis").value,
+  Ingredients: document.getElementById("AddProIng").value,
+  ID: document.getElementById("AddProID").value,
+  Rating: document.getElementById("AddProRate").value,
+  Category: document.getElementById("AddProCat").value,
+  Image: ImgURLUploaded,
+});
+
+}
+
+function UpdateProduct(){
+  var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
+  GetEditProductInfo.set({
+  Name: document.getElementById("edProName").value,
+  About: document.getElementById("edProDis").value,
+  Ingredients: document.getElementById("edProIng").value,
+  ID: document.getElementById("edProID").value,
+  Rating: document.getElementById("edProRate").value,
+  Category: document.getElementById("edProCat").value,
+  Image: ImgURLUploaded || document.getElementById("edProImg").src ,
+});
+}
 
 function HidePEditCard(){
-  console.log(ProductSelected);
-  var ProductID = ID;
-  var Card = document.getElementById("PEditCard").style
+    var Card = document.getElementById("PEditCard").style
   //Get Firebase Data
-    var GetEditProductInfo = firebase.database().ref('Products/' & ProductSelected);
+    var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
     GetEditProductInfo.on('value', (snapshot) => {
     const data = snapshot.val();
+    console.log(data);
     document.getElementById("edProImg").src = data.Image;
     document.getElementById("edProName").value = data.Name;
     document.getElementById("edProDis").value = data.About;
@@ -72,10 +138,10 @@ function HidePEditCard(){
     document.getElementById("edProID").value = data.ID;
     document.getElementById("edProRate").value = data.Rating;
     document.getElementById("edProCat").value = data.Category;
-    /document.getElementById("edProImgUpload").value = data.Name;
+    //document.getElementById("edProImgUpload").value = data.Name;
 
 });
-  
+// Display Card
   if(Card.display == 'block'){
     Card.display = 'none'
   }else{
