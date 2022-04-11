@@ -11,6 +11,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+let ProductSelected = -1;
+
 function SignIn(){
   var Email = document.getElementById("SignInEmail").value
   var Password = document.getElementById("SignInPassword").value
@@ -43,17 +45,38 @@ query.once("value")
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      //console.log(childData.ID)
       document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>" + childData.Rating +"</p></div></li>";
   });
 });
-//productsGallery
-/*<li>
-  <img src="img1.jpg" alt="Jane" style="width:100%;height: 150px">
-  <div class="container">
-    <p style='font-size:20px;'>Jane Doe</p>
-    <p class="Cardtitle">CEO &amp; Founder</p>
-    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-    <p>example@example.com</p>
-  </div>
-</li>*/
+
+function ItemSelected(ID){
+  ProductSelected = ID;
+return ProductSelected
+}
+//PEditCard
+
+//PAddCard
+
+function HidePEditCard(ID){
+  console.log(ProductSelected);
+  var ProductID = ID;
+  var Card = document.getElementById("PEditCard").style
+  
+
+
+  if(Card.display == 'block'){
+    Card.display = 'none'
+  }else{
+    Card.display = 'block'
+  }
+}
+function HidePAddCard(){
+  var Card = document.getElementById("PAddCard").style;
+
+  if(Card.display == 'block'){
+    Card.display = 'none'
+  }else{
+    Card.display = 'block'
+  }
+
+}

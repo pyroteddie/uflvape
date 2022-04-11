@@ -1,0 +1,69 @@
+body{
+  letter-spacing: 1px;
+}
+h1{
+  font-family:Gagalin; 
+  justify-content: center;
+  display:flex;
+  font-size:40px;
+}
+.SignInContainer{
+  width: 60%;
+  position:relative;
+  background-color: #111111  ;
+  padding-left:0px;
+  padding-right:0px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-top: 2px red solid;
+  justify-content: center;
+  display: grid;
+}
+.SignInBox{
+	display: grid;
+  justify-content: center;
+}
+.SignInButton{
+  width: 100px;
+    color: white;
+    font-family: Gagalin;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin: 5px;
+    justify-self:center;
+    font-size: 18px;
+}
+.SignInText{
+  font-size:20px;
+  text-align: center;
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul.images {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  align-content: end;
+  display: flex;
+  height:300px;
+  
+}
+ul.images li {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  font-size:12px;
+  white-space: normal;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.PCardAdd{
+  width:150px;
+  display: none;
+}
