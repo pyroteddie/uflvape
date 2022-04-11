@@ -57,13 +57,25 @@ return ProductSelected
 
 //PAddCard
 
-function HidePEditCard(ID){
+function HidePEditCard(){
   console.log(ProductSelected);
   var ProductID = ID;
   var Card = document.getElementById("PEditCard").style
+  //Get Firebase Data
+    var GetEditProductInfo = firebase.database().ref('Products/' & ProductSelected);
+    GetEditProductInfo.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("edProImg").src = data.Image;
+    document.getElementById("edProName").value = data.Name;
+    document.getElementById("edProDis").value = data.About;
+    document.getElementById("edProIng").value = data.Ingredients;
+    document.getElementById("edProID").value = data.ID;
+    document.getElementById("edProRate").value = data.Rating;
+    document.getElementById("edProCat").value = data.Category;
+    /document.getElementById("edProImgUpload").value = data.Name;
+
+});
   
-
-
   if(Card.display == 'block'){
     Card.display = 'none'
   }else{
