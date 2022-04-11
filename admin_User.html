@@ -2,10 +2,13 @@
  <head>
 <title>UVJ</title>
 <link rel="stylesheet" type="text/css" href="../styles.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="AuthCheck.js"></script>
 <style>
 @font-face { font-family: Gagalin; src: url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/fonts/Gagalin.otf?raw=true') format('opentype')}
+body{
+  letter-spacing: 1px;
+}
 h1{
   font-family:Gagalin; 
   justify-content: center;
@@ -44,6 +47,30 @@ h1{
   text-align: center;
 }
 
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul.images {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  align-content: end;
+  display: flex;
+  height:300px;
+  
+}
+ul.images li {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  font-size:12px;
+  white-space: normal;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 </style>
 <h1 >UFL Admin</h1>
 <div class="NavBar">
@@ -56,27 +83,41 @@ h1{
 <body>
 
 <section>
-<h3>Home Page</h3>
+<h3>Admin Page</h3>
+<p>Below you'll be able to make changes to the website information from this admin panel</p>
 </section>
 <section>
 <h3>Home Page</h3>
-<textarea id="HomePageNews" type="text" rows="7" cols="50"></textarea><
+<textarea id="HomePageNews" type="text" rows="7" cols="50"></textarea><br>
 <button>Update</button>
 </section>
 <section>
-<h3>Home Page</h3>
+<h3>Products</h3>
+<ul class="images" id="productsGallery">
+
+</ul>
+
+<div>
+  <h4>Add</h4>
+</div>
+
+<div>
+  <h4>Remove</h4>
+
+</div>
+
 </section>
 <section>
-<h3>Home Page</h3>
+<h3>Section 2</h3>
 </section>
 <section>
-<h3>Home Page</h3>
+<h3>Section 2</h3>
 </section>
 <section>
-<h3>Home Page</h3>
+<h3>Section 2</h3>
 </section>
 <section>
-<h3>Home Page</h3>
+<h3>Section 2</h3>
 </section>
 
 
@@ -84,7 +125,6 @@ h1{
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script src="Firebase.js"></script>
 <script src="admin.js"></script>
 </html>
 
