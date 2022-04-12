@@ -64,6 +64,60 @@ ul.images li {
 }
 
 .PCardAdd{
-  width:150px;
+  width: 250px;
   display: none;
+  border: 3px solid red;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.ModCards{
+  display: flex;
+  justify-content: space-evenly;
+}
+.ModControl{
+  display: inline-block;
+}
+.ModifierContainer{
+  display: inline-block;
+  width: 100%;
+}
+.container{
+  width:250px
+}
+
+select, input,progress{
+  width: 100%;
+  margin:2px;
+  height: 30px;
+}
+textarea{
+  font-size: 14px;
+  font-family: Gagalin;
+
+}
+.ModControlBut{
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  font-family: Gagalin;
+  color: red;
+  background: black;
+  border: 0;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 1px 3px white;
+ 
+}
+.ControlBut{
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  font-family: Gagalin;
+  color: red;
+  background: black;
+  border: 0;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 1px 3px white;
+  
 }

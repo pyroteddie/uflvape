@@ -70,6 +70,25 @@ function ItemSelected(ID){
 return ProductSelected
 }
 
+var uploader = document.getElementById('Adduploader');
+var fileButton = document.getElementById('AddProImgUpload');
+fileButton.addEventListener('change', function(e){
+var file = e.target.files[0];
+var storageRef = firebase.storage().ref('img/'+file.name);
+var task = storageRef.put(file);
+task.on('state_changed', function progress(snapshot) {
+  var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+  uploader.value = percentage;
+
+}, function error(err) {
+
+
+},function complete() {
+task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+  ImgURLUploaded= downloadURL;
+});
+});
+}); 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
@@ -156,5 +175,15 @@ function HidePAddCard(){
   }else{
     Card.display = 'block'
   }
+
+}
+
+function UpdateNews(){
+  var GetEditProductInfo = firebase.database().ref('HomePage/');
+  GetEditProductInfo.set({
+  HomeNews: document.getElementById("HomePageNews").value,
+  
+});
+
 
 }

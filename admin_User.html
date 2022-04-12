@@ -27,21 +27,21 @@
 <section>
 <h3>Home Page</h3>
 <textarea id="HomePageNews" type="text" rows="7" cols="50"></textarea><br>
-<button>Update</button>
+<button onclick="UpdateNews()">Update</button>
 </section>
 <section>
 <h3>Products</h3>
 <ul class="images" id="productsGallery">
 </ul>
-
-<div><button onclick='HidePAddCard()'>Add</button><button onclick='HidePEditCard()'>Edit</button></div>
-<div>
+<div class="ModifierContainer">
+<div class="ModControl"><button class="ModControlBut" onclick='HidePAddCard()'>Add</button><button class="ModControlBut" onclick='HidePEditCard()'>Edit</button></div>
+<div class="ModCards">
   <div id='PAddCard' Class="PCardAdd" style='display:none'>
-    <img id='AddProImg' style="width:100%;height: 150px">
+    <img id='AddProImg' style="width:150px;height: 150px">
     <div class="container">
       <input id='AddProName' style='font-size:20px;' placeholder="Product Name">
-      <textarea id='AddProDis' class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="50"></textarea>
-      <textarea id='AddProIng' placeholder="Product Ingredients" type="text" rows="7" cols="50"></textarea>
+      <textarea id='AddProDis' class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="28"></textarea>
+      <textarea id='AddProIng' placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
       <input id='AddProID' placeholder="Product ID">
       <input id='AddProRate' placeholder="Product Rating">
       <select id="AddProCat">
@@ -50,30 +50,30 @@
       <option value="Fruit">Fruit</option>
       <option value="Drink">Drink</option>
     </select>
-      <input id='edProImgUpload'  placeholder="Upload Image" type="file">
-      <progress id="uploader" value="0" max="100">0%</progress>
-      <button onclick='AddProduct()'>Add Product</button>
+      <input id='AddProImgUpload'  placeholder="Upload Image" type="file">
+      <progress id="Adduploader" value="0" max="100">0%</progress>
+      <button class="ControlBut" onclick='AddProduct()'>Add Product</button>
     </div>
   </div>
   
   <div id='PEditCard' Class="PCardAdd" style='display:none'>
-    <img id='edProImg' src="" style="width:100%;height: 150px">
+    <img id='edProImg' src="" style="width:150px;height: 150px">
     <div class="container">
       <input id='edProName' style='font-size:20px;' placeholder="Product Name" type="text">
-      <textarea id='edProDis'  class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="50"></textarea>>
-      <textarea id='edProIng'  placeholder="Product Ingredients" type="text" rows="7" cols="50"></textarea>>
+      <textarea id='edProDis'  class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="28"></textarea>
+      <textarea id='edProIng'  placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
       <input id='edProID'  placeholder="Product ID" type="number">
       <input id='edProRate'  placeholder="Product Rating" type="number">
       <select id="edProCat"><option value="Select">Select</option><option value="Dessert">Dessert</option><option value="Fruit">Fruit</option><option value="Drink">Drink</option></select>
       <input id='edProImgUpload'  placeholder="Upload Image" type="file">
       <progress id="uploader" value="0" max="100">0%</progress>
-      <button onclick='UpdateProduct()'>Update Product</button>
-      <button onclick='RemoveProduct()'>Remove Product</button>
+      <button class="ControlBut" onclick='UpdateProduct()'>Update Product</button>
+      <button class="ControlBut" onclick='RemoveProduct()'>Remove Product</button>
     </div>
 </div>
 
 </div>
-
+</div>
 </section>
 <section>
 <h3>Section 2</h3>
