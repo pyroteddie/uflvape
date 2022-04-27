@@ -5,7 +5,7 @@ Menuquery.once("value")
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
       
-      var itemCat = childdate.Category
+      var itemCat = childData.Category
 
       if (itemCat === 'Drink'){
         document.getElementById("slider1").innerHTML += "<dt onclick='ProductPage("+ key +")'>"+ childData.Name +"</dt>";
