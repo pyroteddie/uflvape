@@ -122,6 +122,7 @@ function AddProduct(){
   Name: document.getElementById("AddProName").value,
   About: document.getElementById("AddProDis").value,
   Ingredients: document.getElementById("AddProIng").value,
+  Price: document.getElementById("AddProPrice").value,
   ID: document.getElementById("AddProID").value,
   Rating: document.getElementById("AddProRate").value,
   Category: document.getElementById("AddProCat").value,
@@ -136,6 +137,7 @@ function UpdateProduct(){
   Name: document.getElementById("edProName").value,
   About: document.getElementById("edProDis").value,
   Ingredients: document.getElementById("edProIng").value,
+  
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
