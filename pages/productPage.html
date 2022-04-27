@@ -85,7 +85,7 @@ Other Favioute products
 <script>
 var ProID = sessionStorage.ID;
 
-var HomePageText = firebase.database().ref(':Products/' + ProID);
+var HomePageText = firebase.database().ref('Products/' + ProID);
 HomePageText.on('value', (snapshot) => {
   const data = snapshot.val();
   document.getElementById("ProductName").innerHTML = data.Name;
