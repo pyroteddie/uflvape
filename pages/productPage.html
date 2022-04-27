@@ -14,6 +14,37 @@ h1{
 }
 
 </style>
+<script>
+var ProID = sessionStorage.ID;
+
+var HomePageText = firebase.database().ref(':Products/' + ProID);
+HomePageText.on('value', (snapshot) => {
+  const data = snapshot.val();
+  document.getElementById("ProductName").value = data.Name;
+  document.getElementById("ProductImage").value = data.Image;
+  document.getElementById("DetailsMenu1").value = data.About;
+  document.getElementById("DetailsMenu2").value = data.Ingredients;
+
+  document.getElementById("StarRating").value = data.Rating;
+  for (var i=0;i< 5; i++){
+    if(i < data.Rating){
+      document.getElementById("StarRating").innerHTML += "<span class='fa fa-star checked'></span>";
+    }else {
+      document.getElementById("StarRating").innerHTML += "<span class='fa fa-star '></span>";
+    }
+
+  }
+
+  //ProductName
+  //ProductImage
+  //StarRating
+  //about - DetailsMenu1
+  //ing - DetailsMenu2
+  //DetailsMenu3
+});
+
+</script>
+
 <h1>Unholy Vape Jucies</h1>
 <div class="NavBar">
 <button class="NavBarButton" onclick="location.href='../index.html'">HOME</button>
@@ -27,10 +58,10 @@ h1{
 <div class="ProductHead">
 <section class="ProductInformation" style="border-top: 0px red solid;"> 
   <div>
-      <img class="ProductImg" src=""/>
+      <img class="ProductImg" id='ProductImage' />
   </div>
   <div class="ProductDetails">
-  <a class="ProductTitle">Banana Split</a></br>
+  <a class="ProductTitle" id='ProductName'>Banana Split</a></br>
     <div>
       <a>Rating</a>
       <div id="StarRating">
