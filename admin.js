@@ -137,7 +137,7 @@ function UpdateProduct(){
   Name: document.getElementById("edProName").value,
   About: document.getElementById("edProDis").value,
   Ingredients: document.getElementById("edProIng").value,
-  
+  Price: document.getElementById("AddProPrice").value,
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
