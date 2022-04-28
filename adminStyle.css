@@ -134,3 +134,16 @@ textarea{
   box-shadow: 1px 3px white;
   
 }
+.DiscountCodContainer{
+  width: 170px;
+  display: inline-block;
+  border: 2px solid white;
+  padding:10px;
+  margin: 5px;
+}
+#AddCodeBox{
+  width:180px;
+  border: 2px solid white;
+  padding:5px;
+  margin: 5px;
+}

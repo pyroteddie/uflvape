@@ -51,67 +51,98 @@ query.once("value")
   });
 });
 
-
-function ItemSelected(ID){
-  ProductSelected = ID;
-  var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
-  GetEditProductInfo.on('value', (snapshot) => {
-  const data = snapshot.val();
-  console.log(data);
-  document.getElementById("edProImg").src = data.Image;
-  document.getElementById("edProName").value = data.Name;
-  document.getElementById("edProDis").value = data.About;
-  document.getElementById("edProIng").value = data.Ingredients;
-  document.getElementById("edProID").value = data.ID;
-  document.getElementById("edProRate").value = data.Rating;
-  document.getElementById("edProCat").value = data.Category;
-  
-
+var Codequery = firebase.database().ref("Discounts").orderByKey();
+Codequery.once("value")
+  .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount("+childSnapshot.key+")' class='ModControlBut'>Remove</button></div>";
+  });
 });
 
-return ProductSelected
+//remove Discount Code
+
+function RemoveDiscount(Key){
+  var GetDicCode = firebase.database().ref('Discounts/' + Key);
+  GetDicCode.remove();
+}
+
+// add Discount Code
+function AddDiscountCode(){
+  var CodeName = document.getElementById("DisCodeName").value
+  var dicountAmount = Number(document.getElementById("DisCodeAmount").value) / 100;
+  var GetEditProductInfo = firebase.database().ref('Discounts/'+ CodeName);
+    GetEditProductInfo.set({
+    Discount: dicountAmount,
+    StartDate: document.getElementById("DisCodeStart").value,
+    EndDate: document.getElementById("DisCodeFinish").value,
+    Valid: document.getElementById("DisCodeValid").value,
+    
+    });
+ 
+}
+
+function ItemSelected(ID){
+    ProductSelected = ID;
+    var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
+    GetEditProductInfo.on('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    document.getElementById("edProImg").src = data.Image;
+    document.getElementById("edProName").value = data.Name;
+    document.getElementById("edProDis").value = data.About;
+    document.getElementById("edProIng").value = data.Ingredients;
+    document.getElementById("edProID").value = data.ID;
+    document.getElementById("edProRate").value = data.Rating;
+    document.getElementById("edProCat").value = data.Category;
+    
+
+  });
+
+  return ProductSelected
 }
 
 
 var uploader = document.getElementById('Adduploader');
 var fileButton = document.getElementById('AddProImgUpload');
 fileButton.addEventListener('change', function(e){
-var file = e.target.files[0];
-var storageRef = firebase.storage().ref('img/'+file.name);
-var task = storageRef.put(file);
-task.on('state_changed', function progress(snapshot) {
-  var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-  uploader.value = percentage;
+  var file = e.target.files[0];
+  var storageRef = firebase.storage().ref('img/'+file.name);
+  var task = storageRef.put(file);
+  task.on('state_changed', function progress(snapshot) {
+    var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    uploader.value = percentage;
 
-}, function error(err) {
+  }, function error(err) {
 
 
-},function complete() {
-task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-  ImgURLUploaded= downloadURL;
-});
-});
+  },function complete() {
+  task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    ImgURLUploaded= downloadURL;
+  });
+  });
 }); 
 
 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
-var file = e.target.files[0];
-var storageRef = firebase.storage().ref('img/'+file.name);
-var task = storageRef.put(file);
-task.on('state_changed', function progress(snapshot) {
-  var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-  uploader.value = percentage;
+  var file = e.target.files[0];
+  var storageRef = firebase.storage().ref('img/'+file.name);
+  var task = storageRef.put(file);
+  task.on('state_changed', function progress(snapshot) {
+    var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    uploader.value = percentage;
 
-}, function error(err) {
+  }, function error(err) {
 
 
-},function complete() {
-task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-  ImgURLUploaded= downloadURL;
-});
-});
+  },function complete() {
+  task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    ImgURLUploaded= downloadURL;
+  });
+  });
 }); 
 
 
@@ -122,7 +153,6 @@ function RemoveProduct(){
 
 
 function AddProduct(){
- 
   var ProductLength = firebase.database().ref('Products');
   ProductLength.on('value', (snapshot) => {
   ProLength = snapshot.val();
