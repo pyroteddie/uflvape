@@ -276,9 +276,28 @@ ul.FavGall li {
   font-size: 14px;
 
 }
+.Cartimage{
+	height:150px;
+}
 
+.CartButContainer{
+display: flex;
+}
+.CartBut{
+height: 30px;
+filter: invert(20%) sepia(95%) saturate(4918%) hue-rotate(1deg) brightness(107%) contrast(110%);
+}
 
-
+#CartLength{
+background-color: #f1f1f1;
+color: #1d1d1d;
+display: block;
+height: 15px;
+width: 15px;
+border-radius: 10px;
+line-height: .9;
+text-align: center;
+}
 @media only screen and (max-width: 600px) {
 	.MenuImg{
 		height:200px;

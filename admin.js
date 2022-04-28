@@ -40,6 +40,7 @@ HomePageText.on('value', (snapshot) => {
   document.getElementById("HomePageNews").value = data;
 });
 
+
 var query = firebase.database().ref("Products").orderByKey();
 query.once("value")
   .then(function(snapshot) {
@@ -49,6 +50,7 @@ query.once("value")
       document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>"+childData.Price+"</p</div></li>";
   });
 });
+
 
 function ItemSelected(ID){
   ProductSelected = ID;
@@ -70,6 +72,7 @@ function ItemSelected(ID){
 return ProductSelected
 }
 
+
 var uploader = document.getElementById('Adduploader');
 var fileButton = document.getElementById('AddProImgUpload');
 fileButton.addEventListener('change', function(e){
@@ -89,6 +92,8 @@ task.snapshot.ref.getDownloadURL().then((downloadURL) => {
 });
 });
 }); 
+
+
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
@@ -109,15 +114,24 @@ task.snapshot.ref.getDownloadURL().then((downloadURL) => {
 });
 }); 
 
+
 function RemoveProduct(){
   var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
   GetEditProductInfo.remove();
-
 }
 
-function AddProduct(){
 
-  var GetEditProductInfo = firebase.database().ref('Products/'+ document.getElementById("AddProID").value);
+function AddProduct(){
+ 
+  var ProductLength = firebase.database().ref('Products');
+  ProductLength.on('value', (snapshot) => {
+  ProLength = snapshot.val();
+  console.log(ProLength);
+  
+
+  console.log( ProLength.length);
+
+  var GetEditProductInfo = firebase.database().ref('Products/'+ ProLength.length);
   GetEditProductInfo.set({
   Name: document.getElementById("AddProName").value,
   About: document.getElementById("AddProDis").value,
@@ -127,8 +141,8 @@ function AddProduct(){
   Rating: document.getElementById("AddProRate").value,
   Category: document.getElementById("AddProCat").value,
   Image: ImgURLUploaded,
-});
-
+  });
+  });
 }
 
 function UpdateProduct(){
@@ -137,7 +151,7 @@ function UpdateProduct(){
   Name: document.getElementById("edProName").value,
   About: document.getElementById("edProDis").value,
   Ingredients: document.getElementById("edProIng").value,
-  Price: document.getElementById("AddProPrice").value,
+  Price: document.getElementById("edProPrice").value,
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,

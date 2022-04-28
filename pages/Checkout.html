@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../script.js"></script>
+    <style>
+    @font-face { font-family: Gagalin; src: url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/fonts/Gagalin.otf?raw=true') format('opentype')}
+    h1{
+      font-family:Gagalin; 
+      justify-content: center;
+      display:flex;
+      font-size:40px;
+    }
+    
+    </style>
+    
+
+    <h1>UFL Vaping</h1>
+    <div class="NavBar">
+    <button class="NavBarButton" onclick="location.href='../index.html'">HOME</button>
+    <button class="NavBarButton" onclick="location.href='../pages/ComingSoon.html'">COMING SOON</button>
+    <button class="NavBarButton" onclick="location.href='../pages/ContactUs.html'">CONTACT US</button>
+    <span class='CartButContainer'><img class='CartBut' src="https://firebasestorage.googleapis.com/v0/b/uflvape.appspot.com/o/Shopping-Basket-Icon.png?alt=media&token=29eeed85-b3cc-48ee-96a8-7edfad230137" onclick="location.href='../pages/Checkout.html'" /><a id="CartLength"></a></span>
+  </div>
+  </head>
+  <body>
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <!-- Set up a container element for the button -->
+    <section>
+      <div id='ProductCartList'>
+      </div>
+
+
+
+      <div>
+          <div> 
+            <label>Discount Code</label>
+            <input type="text" placeholder="Discount Code"/>
+          </div>
+        <div id="paypal-button-container"></div>
+      </div>
+    </section>
+    
+    
+    
+    
+    <script>
+
+
+      paypal.Buttons({
+     
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            "purchase_units": [{
+                "amount": {
+                  "currency_code": "AUD",
+                  "value": "100",
+                  "breakdown": {
+                    "item_total": {  
+                      "currency_code": "AUD",
+                      "value": "100"
+                    }
+                  }
+                },
+                "items": [
+                  {
+                    "name": "First Product Name",
+                    "description": "", 
+                    "unit_amount": {
+                      "currency_code": "AUD",
+                      "value": "50"
+                    },
+                    "quantity": "2"
+                  },
+                ]
+              }]
+          });
+        },
+        // Finalize the transaction after payer approval
+        onApprove: (data, actions) => {
+          return actions.order.capture().then(function(orderData) {
+            // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            const transaction = orderData.purchase_units[0].payments.captures[0];
+            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // const element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // Or go to another URL:  actions.redirect('thank_you.html');
+          });
+        }
+      }).render('#paypal-button-container');
+    </script>
+
+  <script>
+    //ProductCartList
+
+    var cart = JSON.parse(sessionStorage.Cart);
+    console.log(cart.length)
+    for(var i = 0 ; i<cart.length; i++){
+      console.log(cart[i].name)
+      document.getElementById("ProductCartList").innerHTML += "<img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p>" + cart[i].name +"</p><p>" + cart[i].unit_amount.value +"</p></div>"
+    }
+
+   
+
+    </script>
+
+  </body>
+</html>
