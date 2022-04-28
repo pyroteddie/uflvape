@@ -72,14 +72,14 @@
             var Cart = JSON.parse(sessionStorage.Cart);
             for(var i = 0 ; i < Cart.length; i++){
              Cart[i].unit_amount.value = Math.round((Cart[i].unit_amount.value - (Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
-             TotalDiscount  = TotalDiscount + (Cart[i].unit_amount.value * discountAdd);
+             TotalDiscount  = TotalDiscount +  Math.round(((Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
              TotalSum = TotalSum + Number(Cart[i].unit_amount.value);
              console.log(cart[i].unit_amount.value);
             }
               sessionStorage.setItem('TotalDiscount', TotalDiscount);
               sessionStorage.setItem('Cart', JSON.stringify(Cart));
               sessionStorage.setItem('DiscountApplied','true');
-              TotalSumShipp = TotalSum + sessionStorage.Postage;
+              TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
               console.log(TotalSumShipp);
               console.log(TotalSum);
               console.log(JSON.stringify(Cart));
@@ -109,7 +109,7 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
-    TotalSumShipp = TotalSum + sessionStorage.Postage;
+    TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
     document.getElementById("TotalSum").innerHTML = TotalSum;
     document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
     document.getElementById("TotalDiscount").innerHTML = sessionStorage.TotalDiscount;
@@ -123,7 +123,7 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
-     TotalSumShipp = TotalSum + sessionStorage.Postage;
+     TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
      document.getElementById("TotalSum").innerHTML = TotalSum;
      document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
     

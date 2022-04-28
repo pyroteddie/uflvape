@@ -93,7 +93,7 @@ window.addEventListener('storage', () => {
 
   if(cart.length <= 0){
     sessionStorage.DiscountApplied = 'false'
-
+    sessionStorage.setItem('TotalDiscount', 0)
   }
 });
 
