@@ -36,9 +36,9 @@
 
       <div class='PayBox'>
          <div id="summaryCart">
-          <p>Total Cart: $ 105</p>
-          <p>Postage: $ 15</p>
-          <p>Discount: $ 0</p>
+          <p>Total Cart: $ <a id='TotalSum'></a></p>
+          <p>Postage: $ <a id='PostageFee'></a></p>
+          <p>Discount: $ <a id='TotalDiscount'></a></p>
         </div> 
 
           <div style="margin:5px"> 
@@ -52,12 +52,14 @@
 
 
    <script>
-   
+
 
    const d = new Date();
    var NowDate = d.getDate() +"/" + (d.getMonth() + 1) +"/" + d.getFullYear();
    let TotalSum = 0;
    let TotalSumShipp = 0;
+
+
    function AddDiscount() {
     var discountCode = document.getElementById('DiscountInput').value;
     var DisountInfo = firebase.database().ref('Discounts/'+discountCode);
@@ -66,15 +68,18 @@
           var discountAdd = data.Discount;
           if (NowDate < data.EndDate & sessionStorage.DiscountApplied != 'true'){
             TotalSum = 0;
+            var TotalDiscount = 0;
             var Cart = JSON.parse(sessionStorage.Cart);
             for(var i = 0 ; i < Cart.length; i++){
              Cart[i].unit_amount.value = Math.round((Cart[i].unit_amount.value - (Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
+             TotalDiscount  = TotalDiscount + (Cart[i].unit_amount.value * discountAdd);
              TotalSum = TotalSum + Number(Cart[i].unit_amount.value);
              console.log(cart[i].unit_amount.value);
             }
+              sessionStorage.setItem('TotalDiscount', TotalDiscount);
               sessionStorage.setItem('Cart', JSON.stringify(Cart));
               sessionStorage.setItem('DiscountApplied','true');
-              TotalSumShipp = TotalSum + 15;
+              TotalSumShipp = TotalSum + sessionStorage.Postage;
               console.log(TotalSumShipp);
               console.log(TotalSum);
               console.log(JSON.stringify(Cart));
@@ -95,13 +100,21 @@
   function PopulateCarList(){
     TotalSum = 0;
     document.getElementById("ProductCartList").innerHTML = "";
+    
+    
+    //TotalSum
     var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
       console.log(cart[i].unit_amount.value)
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
-    TotalSumShipp = TotalSum + 15;
+    TotalSumShipp = TotalSum + sessionStorage.Postage;
+    document.getElementById("TotalSum").innerHTML = TotalSum;
+    document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
+    document.getElementById("TotalDiscount").innerHTML = sessionStorage.TotalDiscount;
+    
+    //
    }
 
     var cart = JSON.parse(sessionStorage.Cart);
@@ -110,7 +123,10 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
-     TotalSumShipp = TotalSum + 15;
+     TotalSumShipp = TotalSum + sessionStorage.Postage;
+     document.getElementById("TotalSum").innerHTML = TotalSum;
+     document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
+    
              
 
  paypal.Buttons({     
@@ -131,7 +147,7 @@
                     },
                       "shipping": {
                       "currency_code": "AUD",
-                      "value": "15.00"
+                      "value": sessionStorage.Postage
                     },
                   }
                 },

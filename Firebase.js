@@ -16,3 +16,9 @@ HomePageText.on('value', (snapshot) => {
   const data = snapshot.val();
   document.getElementById("HomePageText").innerHTML = data;
 });
+var PostageFee = firebase.database().ref('Fees/Postage/');
+PostageFee.on('value', (snapshot) => {
+  const data = snapshot.val();
+  sessionStorage.setItem('Postage', data.Value)
+ 
+});
