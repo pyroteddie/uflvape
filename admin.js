@@ -51,7 +51,19 @@ query.once("value")
   });
 });
 
-var Codequery = firebase.database().ref("Discounts").orderByKey();
+//remove Discount Code
+
+function RemoveDiscount(Key){
+  var GetDicCode = firebase.database().ref('Discounts/' + Key);
+  GetDicCode.remove();
+}
+
+
+const ref = firebase.database().ref('Discounts');
+// Attach an asynchronous callback to read the data at our posts reference
+ref.on('value', (snapshot) => {
+  document.getElementById("CodeContainer").innerHTML = ''
+  var Codequery = firebase.database().ref("Discounts").orderByKey();
 Codequery.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
@@ -60,13 +72,9 @@ Codequery.once("value")
       document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount("+childSnapshot.key+")' class='ModControlBut'>Remove</button></div>";
   });
 });
-
-//remove Discount Code
-
-function RemoveDiscount(Key){
-  var GetDicCode = firebase.database().ref('Discounts/' + Key);
-  GetDicCode.remove();
-}
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
+});
 
 // add Discount Code
 function AddDiscountCode(){
