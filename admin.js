@@ -78,7 +78,7 @@ Codequery.once("value")
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount('"+childSnapshot.key+"')' class='ModControlBut'>Remove</button></div>";
+      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount("+childSnapshot.key+")' class='ModControlBut'>Remove</button></div>";
   });
 });
 }, (errorObject) => {
