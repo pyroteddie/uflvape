@@ -87,5 +87,7 @@ function Fruitsunhover(element) {
 }
 
 window.addEventListener('storage', () => {
+  
+  var cart = JSON.parse(sessionStorage.Cart);
   document.getElementById('CartLength').innerHTML = cart.length
 });
