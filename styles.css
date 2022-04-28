@@ -279,7 +279,15 @@ ul.FavGall li {
 .Cartimage{
 	height:150px;
 }
-
+.CartItemCon{
+	margin: 5px;
+	border-bottom: #ff1900 solid 2px;
+	width: 400px;
+}
+.Cart{
+	display: inline-block;
+	margin:5px;
+}
 .CartButContainer{
 display: flex;
 }
@@ -287,7 +295,18 @@ display: flex;
 height: 30px;
 filter: invert(20%) sepia(95%) saturate(4918%) hue-rotate(1deg) brightness(107%) contrast(110%);
 }
-
+.checkoutSection{
+	display: flex;
+	justify-content: space-evenly;
+}
+.PayBox{
+	width: 300px;
+	display: inline-block;
+	align-self: self-end;
+}
+#ProductCartList{
+	display: inline-block;
+}
 #CartLength{
 background-color: #f1f1f1;
 color: #1d1d1d;

@@ -28,15 +28,21 @@
     <!-- Replace "test" with your own sandbox Business account app client ID -->
     <script src="https://www.paypal.com/sdk/js?client-id=AUCM5GM7uJjaaPz4He-PD7DtcjGUCbBnWLjueREOXpx43b5MsFAC92TU0Xpg7cFQkv8M-SHE_f21L3l8&currency=AUD"></script>
     <!-- Set up a container element for the button -->
-    <section>
+    <section class='checkoutSection'>
       <div id='ProductCartList'>
       </div>
 
 
 
-      <div>
-          <div> 
-            <label>Discount Code</label>
+      <div class='PayBox'>
+         <div id="summaryCart">
+          <p>Total Cart: $ 105</p>
+          <p>Postage: $ 15</p>
+          <p>Discount: $ 0</p>
+        </div> 
+
+          <div style="margin:5px"> 
+            <label>Discount Code</label><br>
             <input type="text" placeholder="Discount Code"/>
           </div>
         <div id="paypal-button-container"></div>
@@ -52,7 +58,7 @@ var cart = JSON.parse(sessionStorage.Cart);
     console.log(cart.length)
     for(var i = 0 ; i<cart.length; i++){
       console.log(cart[i].name)
-      document.getElementById("ProductCartList").innerHTML += "<img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p>" + cart[i].name +"</p><p>" + cart[i].unit_amount.value +"</p></div>"
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div></div>"
 
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
