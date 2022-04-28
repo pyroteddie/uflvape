@@ -43,7 +43,7 @@
 
           <div style="margin:5px"> 
             <label>Discount Code</label><br>
-            <input type="text" placeholder="Discount Code"/>
+            <input id="DiscountInput" type="text" placeholder="Discount Code"/><button onclick="AddDiscount()">Add</button>
           </div>
         <div id="paypal-button-container"></div>
       </div>
@@ -52,31 +52,87 @@
 
 
    <script>
+   
+
+   const d = new Date();
+   var NowDate = d.getDate() +"/" + (d.getMonth() + 1) +"/" + d.getFullYear();
    let TotalSum = 0;
+   let TotalSumShipp = 0;
+   function AddDiscount() {
+    var discountCode = document.getElementById('DiscountInput').value;
+    var DisountInfo = firebase.database().ref('Discounts/'+discountCode);
+        DisountInfo.on('value', (snapshot) => {
+          const data = snapshot.val();
+          var discountAdd = data.Discount;
+          if (NowDate < data.EndDate & sessionStorage.DiscountApplied != 'true'){
+            TotalSum = 0;
+            var Cart = JSON.parse(sessionStorage.Cart);
+            for(var i = 0 ; i < Cart.length; i++){
+             Cart[i].unit_amount.value = Math.round((Cart[i].unit_amount.value - (Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
+             TotalSum = TotalSum + Number(Cart[i].unit_amount.value);
+             console.log(cart[i].unit_amount.value);
+            }
+              sessionStorage.setItem('Cart', JSON.stringify(Cart));
+              sessionStorage.setItem('DiscountApplied','true');
+              TotalSumShipp = TotalSum + 15;
+              console.log(TotalSumShipp);
+              console.log(TotalSum);
+              console.log(JSON.stringify(Cart));
+              
+              PopulateCarList();
+            }else{
+            }
+         });
+   }
 
-var cart = JSON.parse(sessionStorage.Cart);
-    console.log(cart.length)
+   function removeItemCart(index){
+    var cart = JSON.parse(sessionStorage.Cart);
+    cart.splice(index, 1);
+    sessionStorage.setItem('Cart', JSON.stringify(cart));
+    PopulateCarList();
+   }
+
+  function PopulateCarList(){
+    TotalSum = 0;
+    document.getElementById("ProductCartList").innerHTML = "";
+    var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
-      console.log(cart[i].name)
-      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div></div>"
-
+      console.log(cart[i].unit_amount.value)
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
       TotalSum = TotalSum + Number(cart[i].unit_amount.value);
     }
+    TotalSumShipp = TotalSum + 15;
+   }
 
-   console.log(TotalSum)
- paypal.Buttons({
-     
+    var cart = JSON.parse(sessionStorage.Cart);
+    for(var i = 0 ; i<cart.length; i++){
+      console.log(cart[i].unit_amount.value)
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
+      TotalSum = TotalSum + Number(cart[i].unit_amount.value);
+    }
+     TotalSumShipp = TotalSum + 15;
+             
+
+ paypal.Buttons({     
         createOrder: (data, actions) => {
+          var cart = JSON.parse(sessionStorage.Cart);
+          console.log(TotalSumShipp);
+          console.log(Math.round(((TotalSum) + Number.EPSILON) * 100) / 100);
+          
           return actions.order.create({
             "purchase_units": [{
                 "amount": {
                   "currency_code": "AUD",
-                  "value": TotalSum,
+                  "value": TotalSumShipp,
                   "breakdown": {
                     "item_total": {  
                       "currency_code": "AUD",
-                      "value": TotalSum
-                    }
+                      "value": Math.round(((TotalSum) + Number.EPSILON) * 100) / 100 
+                    },
+                      "shipping": {
+                      "currency_code": "AUD",
+                      "value": "15.00"
+                    },
                   }
                 },
                 "items": cart
@@ -98,6 +154,8 @@ var cart = JSON.parse(sessionStorage.Cart);
         }
       }).render('#paypal-button-container');
     </script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script src="../Firebase.js"></script>
 
   
 
