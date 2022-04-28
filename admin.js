@@ -41,15 +41,24 @@ HomePageText.on('value', (snapshot) => {
 });
 
 
-var query = firebase.database().ref("Products").orderByKey();
-query.once("value")
-  .then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key;
-      var childData = childSnapshot.val();
-      document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>"+childData.Price+"</p</div></li>";
+const Productref = firebase.database().ref('Products');
+// Attach an asynchronous callback to read the data at our posts reference
+Productref.on('value', (snapshot) => {
+  document.getElementById("productsGallery").innerHTML = ''
+  var query = firebase.database().ref("Products").orderByKey();
+  query.once("value")
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>"+childData.Price+"</p</div></li>";
+    });
   });
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
 });
+
+
 
 //remove Discount Code
 
@@ -69,7 +78,7 @@ Codequery.once("value")
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount("+childSnapshot.key+")' class='ModControlBut'>Remove</button></div>";
+      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount('"+childSnapshot.key+"')' class='ModControlBut'>Remove</button></div>";
   });
 });
 }, (errorObject) => {
