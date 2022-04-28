@@ -117,7 +117,7 @@ function RemoveProduct(){
 
 function AddProduct(){
 
-  var GetEditProductInfo = firebase.database().ref('Products/' + document.getElementById("AddProID").value);
+  var GetEditProductInfo = firebase.database().ref('Products/'+ document.getElementById("AddProID").value);
   GetEditProductInfo.set({
   Name: document.getElementById("AddProName").value,
   About: document.getElementById("AddProDis").value,
