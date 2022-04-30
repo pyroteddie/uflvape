@@ -93,18 +93,60 @@
   <input type="checkbox" id='DisCodeValid'/>
   <button class="ModControlBut" onclick='AddDiscountCode()'>Add</button>
 </div>
-
 <div id='CodeContainer'>
-
 </div>
+</section>
 
+<section>
+<h3>The Lab</h3>
+
+
+  <div class="ModifierContainer">
+    <div class="ModControl"><button class="ModControlBut" onclick='HidePAddCard()'>Add</button><button class="ModControlBut" onclick='HidePEditCard()'>Edit</button></div>
+  <div class="ModCards">
+    <div id='PAddCard' Class="PCardAdd" style='display:none'>
+      <img id='AddProImg' style="width:150px;height: 150px">
+      <div class="container">
+        <input id='AddProName' style='font-size:20px;' placeholder="Product Name">
+        <textarea id='AddProDis' class="Cardtitle" placeholder="Product Description" type="text" rows="7" cols="28"></textarea>
+        <textarea id='AddProIng' placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
+        <input id='AddProID' placeholder="Product ID">
+        <input id='AddProRate' placeholder="Product Rating">
+        <input id='AddProPrice' placeholder="Product Price">
+        <select id="AddProCat">
+        <option value="Select">Select</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Fruit">Fruit</option>
+        <option value="Drink">Drink</option>
+      </select>
+        <input id='AddProImgUpload'  placeholder="Upload Image" type="file">
+        <progress id="Adduploader" value="0" max="100">0%</progress>
+        <button class="ControlBut" onclick='AddProduct()'>Add Product</button>
+      </div>
+    </div>
+    
+    <div id='PEditCard' Class="PCardAdd" style='display:none'>
+      <img id='edProImg' src="" style="width:150px;height: 150px">
+      <div class="container">
+        <input id='edProName' style='font-size:20px;' placeholder="Product Name" type="text">
+        <textarea id='edProDis'  class="Cardtitle" placeholder="Product Description" type="text" rows="7" cols="28"></textarea>
+        <textarea id='edProIng'  placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
+        <input id='edProID'  placeholder="Product ID" type="number">
+        <input id='edProRate'  placeholder="Product Rating" type="number">
+        <input id='edProPrice' placeholder="Product Price">
+        <select id="edProCat"><option value="Select">Select</option><option value="Dessert">Dessert</option><option value="Fruit">Fruit</option><option value="Drink">Drink</option></select>
+        <input id='edProImgUpload'  placeholder="Upload Image" type="file">
+        <progress id="uploader" value="0" max="100">0%</progress>
+        <button class="ControlBut" onclick='UpdateProduct()'>Update Product</button>
+        <button class="ControlBut" onclick='RemoveProduct()'>Remove Product</button>
+      </div>
+  </div>
 </section>
+
 <section>
 <h3>Section 2</h3>
 </section>
-<section>
-<h3>Section 2</h3>
-</section>
+
 <section>
 <h3>Section 2</h3>
 </section>
