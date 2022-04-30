@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let ProductSelected = -1;
+let LabProductSelected = -1;
 let ImgURLUploaded = null;
 
 function SignIn(){
@@ -258,3 +259,151 @@ function ShowAddCode(){
     container.display = 'none'
   }
 }
+
+// -------------------------------------The Lab Section-------------------------------------------
+
+function ItemLabSelected(ID){
+  LabProductSelected = ID;
+  var GetEditProductInfo = firebase.database().ref('Experimental/' + LabProductSelected);
+  GetEditProductInfo.on('value', (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+  document.getElementById("edLabProImg").src = data.Image;
+  document.getElementById("edLabProName").value = data.Name;
+  document.getElementById("edLabProDis").value = data.About;
+  document.getElementById("edLabProIng").value = data.Ingredients;
+  document.getElementById("edLabProID").value = data.ID;
+  document.getElementById("edLabProRate").value = data.Rating;
+  document.getElementById("edLabProCat").value = data.Category;
+  
+
+  });
+
+  return LabProductSelected
+  }
+
+function HidePLabEditCard(){
+  var Card = document.getElementById("PEditCard").style
+  var GetEditProductInfo = firebase.database().ref('Experimental/' + LabProductSelected);
+  GetEditProductInfo.on('value', (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+  document.getElementById("edLabProImg").src = data.Image;
+  document.getElementById("edLabProName").value = data.Name;
+  document.getElementById("edLabProDis").value = data.About;
+  document.getElementById("edLabProIng").value = data.Ingredients;
+  document.getElementById("edLabProID").value = data.ID;
+  document.getElementById("edLabProRate").value = data.Rating;
+  document.getElementById("edLabProCat").value = data.Category;
+  //document.getElementById("edProImgUpload").value = data.Name;
+
+  });
+  // Display Card
+  if(Card.display == 'block'){
+    Card.display = 'none'
+  }else{
+    Card.display = 'block'
+  }
+  }
+
+function HidePLabAddCard(){
+  var Card = document.getElementById("PAddLabCard").style;
+
+  if(Card.display == 'block'){
+    Card.display = 'none'
+  }else{
+    Card.display = 'block'
+  }
+
+  }
+
+function RemoveLabProduct(){
+  var GetEditProductInfo = firebase.database().ref('Experimental/' + LabProductSelected);
+  GetEditProductInfo.remove();
+  }
+
+
+function AddLabProduct(){
+  var ProductLength = firebase.database().ref('Experimental');
+  ProductLength.once('value', (snapshot) => {
+  ProLength = snapshot.val();
+  var childern = snapshot.numChildren();
+
+  var GetEditProductInfo = firebase.database().ref('Experimental/'+ childern);
+  GetEditProductInfo.set({
+  Name: document.getElementById("AddLabProName").value,
+  About: document.getElementById("AddLabProDis").value,
+  Ingredients: document.getElementById("AddLabProIng").value,
+  ID: document.getElementById("AddLabProID").value,
+  Category: document.getElementById("AddLabProCat").value,
+  Image: ImgURLUploaded,
+  Votes:{Up:0,Down:0}
+  });
+  });
+}
+
+function UpdateLabProduct(){
+  var GetEditProductInfo = firebase.database().ref('Experimental/' + LabProductSelected);
+  GetEditProductInfo.set({
+  Name: document.getElementById("edLabProName").value,
+  About: document.getElementById("edLabProDis").value,
+  Ingredients: document.getElementById("edLabProIng").value,
+  Price: document.getElementById("edLabProPrice").value,
+  ID: document.getElementById("edLabProID").value,
+  Rating: document.getElementById("edLabProRate").value,
+  Category: document.getElementById("edLabProCat").value,
+  Image: ImgURLUploaded || document.getElementById("edLabProImg").src ,
+});
+}
+
+const Experimentalref = firebase.database().ref('Experimental');
+Experimentalref.on('value', (snapshot) => {
+  document.getElementById("LabGallery").innerHTML = '';
+      snapshot.forEach(function(childSnapshot) {
+
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        document.getElementById("LabGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " style='width:150px;height:150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>$"+childData.Price+"</p</div></li>";
+    });
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
+});
+
+var uploader = document.getElementById('AddLabuploader');
+var fileButton = document.getElementById('AddLabProImgUpload');
+fileButton.addEventListener('change', function(e){
+  var file = e.target.files[0];
+  var storageRef = firebase.storage().ref('img/'+file.name);
+  var task = storageRef.put(file);
+  task.on('state_changed', function progress(snapshot) {
+    var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    uploader.value = percentage;
+
+  }, function error(err) {
+
+
+  },function complete() {
+  task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    ImgURLUploaded= downloadURL;
+  });
+  });
+}); 
+var uploader = document.getElementById('Labuploader');
+var fileButton = document.getElementById('edLabProImgUpload');
+fileButton.addEventListener('change', function(e){
+  var file = e.target.files[0];
+  var storageRef = firebase.storage().ref('img/'+file.name);
+  var task = storageRef.put(file);
+  task.on('state_changed', function progress(snapshot) {
+    var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    uploader.value = percentage;
+
+  }, function error(err) {
+
+
+  },function complete() {
+  task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    ImgURLUploaded= downloadURL;
+  });
+  });
+}); 
