@@ -51,7 +51,7 @@ Productref.on('value', (snapshot) => {
       snapshot.forEach(function(childSnapshot) {
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>"+childData.Price+"</p</div></li>";
+        document.getElementById("productsGallery").innerHTML += "<li onclick='ItemSelected("+ key +")'><img src= " + childData.Image + " alt=" + childData.Name +" style='width:100%;height: 150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>$"+childData.Price+"</p</div></li>";
     });
   });
 }, (errorObject) => {
@@ -78,7 +78,7 @@ Codequery.once("value")
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick='RemoveDiscount("+childSnapshot.key+")' class='ModControlBut'>Remove</button></div>";
+      document.getElementById("CodeContainer").innerHTML += "<div class='DiscountCodContainer'>      <p>"+ childSnapshot.key +"</p><a>Start: "+childData.StartDate +" </a><br><a>Finish: "+childData.EndDate +"</a><br><a>Vaild: "+childData.Valid +"</a><br><button onclick="+"RemoveDiscount('"+childSnapshot.key+"')"+" class='ModControlBut'>Remove</button></div>";
   });
 });
 }, (errorObject) => {
@@ -247,6 +247,14 @@ function UpdateNews(){
   HomeNews: document.getElementById("HomePageNews").value,
   
 });
+}
+function ShowAddCode(){
 
-
+  var container = document.getElementById('AddCodeBox').style;
+  console.log(container.display)
+  if(container.display === 'none'){
+    container.display = 'block';
+  }else{
+    container.display = 'none'
+  }
 }

@@ -97,6 +97,33 @@ textarea{
   font-family: Gagalin;
 
 }
+.Buttons{
+  font-size: 18px;
+  font-family: Gagalin;
+  color: red;
+  background: black;
+  border: 0;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 1px 3px white;
+  margin-bottom: 20px;
+
+}
+
+.Buttons:hover{
+  color: white;
+  background: black;
+  box-shadow: 1px 3px  red;
+
+}
+.Buttons:active{
+  color: black;
+  background:  white;
+  box-shadow: 1px 3px  red;
+  border-radius: 10px;
+
+}
+
 .ModControlBut{
   width: 150px;
   height: 30px;
@@ -121,6 +148,8 @@ textarea{
   box-shadow: 1px 3px  red;
   border-radius: 15px;
 }
+
+
 .ControlBut{
   width: 150px;
   height: 30px;
@@ -146,4 +175,184 @@ textarea{
   border: 2px solid white;
   padding:5px;
   margin: 5px;
+  display: block;
+}
+h1{
+  font-family:Gagalin; 
+  justify-content: center;
+  display:flex;
+  font-size:40px;
+}
+.SignInContainer{
+  width: 60%;
+  position:relative;
+  background-color: #111111  ;
+  padding-left:0px;
+  padding-right:0px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-top: 2px red solid;
+  justify-content: center;
+  display: grid;
+}
+.SignInBox{
+	display: grid;
+  justify-content: center;
+}
+.SignInButton{
+  width: 100px;
+    color: white;
+    font-family: Gagalin;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin: 5px;
+    justify-self:center;
+    font-size: 18px;
+}
+.SignInText{
+  font-size:20px;
+  text-align: center;
+}
+@media screen and (max-width: 415px) {
+  h1{
+    
+    justify-content: center;
+    display:flex;
+    font-size:40px;
+  }
+  .SignInContainer{
+    width: 100%;
+    position:relative;
+    padding-left:0px;
+    padding-right:0px;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-top: 2px red solid;
+    justify-content: center;
+    display: grid;
+  }
+  .SignInBox{
+    display: grid;
+    justify-content: center;
+  }
+  .SignInButton{
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin: 5px;
+    justify-self:center;
+    font-size: 18px;
+  }
+  .SignInText{
+    font-size:20px;
+    text-align: center;
+  }
+  
+  /* Add some shadows to create a card effect */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  ul.images {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-content: end;
+    display: flex;
+    height:450px;
+    
+  }
+  ul.images li {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    font-size:12px;
+    white-space: normal;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .PCardAdd{
+    width: 100%;
+    display: none;
+    border: 3px solid red;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+  .ModCards{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .ModControl{
+    display: inline-block;
+  }
+  .ModifierContainer{
+    display: inline-block;
+    width: 100%;
+  }
+  .container{
+    width:100%
+  }
+  .Cardtitle{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  select, input,progress{
+    width: 100%;
+    margin:2px;
+    height: 30px;
+  }
+  textarea{
+    font-size: 16px;
+    width: 100%;
+  
+  }
+  .ModControlBut{
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 1px 3px white;
+    margin-bottom: 20px;
+  }
+  .Buttons{
+
+  }
+
+  .ControlBut{
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 1px 3px white;
+    
+  }
+  .DiscountCodContainer{
+    width: 170px;
+    display: inline-block;
+    border: 2px solid white;
+    padding:10px;
+    margin: 5px;
+  }
+  #AddCodeBox{
+    width:180px;
+    border: 2px solid white;
+    padding:5px;
+    margin: 5px;
+  }
+  h1{
+    justify-content: center;
+    display:flex;
+    font-size:40px;
+  }
+
+
+
 }

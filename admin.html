@@ -1,53 +1,16 @@
 <html>
  <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UVJ</title>
-<link rel="stylesheet" type="text/css" href="../styles.css">
+<link rel="stylesheet" type="text/css" href="./styles.css">
+<link rel="stylesheet" type="text/css" href="./adminStyle.css">
 <script>
 sessionStorage.setItem("SignedIn", "False");
 
 </script>
 
-
 <style>
 @font-face { font-family: Gagalin; src: url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/fonts/Gagalin.otf?raw=true') format('opentype')}
-h1{
-  font-family:Gagalin; 
-  justify-content: center;
-  display:flex;
-  font-size:40px;
-}
-.SignInContainer{
-  width: 60%;
-  position:relative;
-  background-color: #111111  ;
-  padding-left:0px;
-  padding-right:0px;
-  margin-left: 20%;
-  margin-right: 20%;
-  border-top: 2px red solid;
-  justify-content: center;
-  display: grid;
-}
-.SignInBox{
-	display: grid;
-  justify-content: center;
-}
-.SignInButton{
-  width: 100px;
-    color: white;
-    font-family: Gagalin;
-    background-color: black;
-    border-radius: 5px;
-    border: 1px solid red;
-    margin: 5px;
-    justify-self:center;
-    font-size: 18px;
-}
-.SignInText{
-  font-size:20px;
-  text-align: center;
-}
-
 </style>
 <h1 >UFL Admin</h1>
 <div class="NavBar">
@@ -66,7 +29,7 @@ h1{
 <label>Password</label>
 <input id="SignInPassword" type="password">
 </div>
-<button class="SignInButton" onclick="SignIn()">Sign In</button>
+<button class="Buttons" onclick="SignIn()">Sign In</button>
 </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>

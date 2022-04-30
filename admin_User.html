@@ -27,7 +27,7 @@
 <section>
 <h3>Home Page</h3>
 <textarea id="HomePageNews" type="text" rows="7" cols="50"></textarea><br>
-<button onclick="UpdateNews()">Update</button>
+<button class='Buttons' onclick="UpdateNews()">Update</button>
 </section>
 <section>
 <h3>Products</h3>
@@ -40,7 +40,7 @@
     <img id='AddProImg' style="width:150px;height: 150px">
     <div class="container">
       <input id='AddProName' style='font-size:20px;' placeholder="Product Name">
-      <textarea id='AddProDis' class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="28"></textarea>
+      <textarea id='AddProDis' class="Cardtitle" placeholder="Product Description" type="text" rows="7" cols="28"></textarea>
       <textarea id='AddProIng' placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
       <input id='AddProID' placeholder="Product ID">
       <input id='AddProRate' placeholder="Product Rating">
@@ -61,7 +61,7 @@
     <img id='edProImg' src="" style="width:150px;height: 150px">
     <div class="container">
       <input id='edProName' style='font-size:20px;' placeholder="Product Name" type="text">
-      <textarea id='edProDis'  class="Cardtitle" placeholder="Product Discription" type="text" rows="7" cols="28"></textarea>
+      <textarea id='edProDis'  class="Cardtitle" placeholder="Product Description" type="text" rows="7" cols="28"></textarea>
       <textarea id='edProIng'  placeholder="Product Ingredients" type="text" rows="7" cols="28"></textarea>
       <input id='edProID'  placeholder="Product ID" type="number">
       <input id='edProRate'  placeholder="Product Rating" type="number">
@@ -79,8 +79,8 @@
 </section>
 <section>
 <h3>Discount Codes</h3>
-<button>Create</button>
-<div id='AddCodeBox'>
+<button class='Buttons' onclick='ShowAddCode()'>Create</button>
+<div id='AddCodeBox' style="display:none">
 <label>Discount Code</label>
 <input type="text" id='DisCodeName' />
   <label>Discount amount</label>
