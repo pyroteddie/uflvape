@@ -347,14 +347,13 @@ text-align: center;
 		width: 100%;
     padding-left: 0px;
     padding-right: 0px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 0;
+    margin-right: 0;
 	}
 
 	.NavBar{
 		width: 100%;
-    margin-left: 20px;
-	}
+ 	}
 	.NavBarButton{
 		height: 40px;
 		font-size: 20px;
@@ -365,14 +364,14 @@ text-align: center;
 
 	.menus{
 		position:relative;
-		height:600px;
+		height: fit-content;
 	}
 	.paddingText{
-		padding-left:45px;
-		padding-right:45px;
-		padding-bottom: 20px;
-		width: 60%;
-		margin: auto;
+		padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    width: 90%;
+    margin: auto;
 	
 	}
 	p{
@@ -381,13 +380,13 @@ text-align: center;
 	}
 	
 	.Title{
-		background-image: linear-gradient( 173deg, red 60%, RGBA(0,0,0,0) 70%);
-		width: fit-content;
-		padding-right: 300px;
-		font-size: 25px;
-		padding-left: 5%;
-		margin-top: 0;
-	letter-spacing: 2px
+		background-image: linear-gradient( 166deg, red 60%, RGBA(0,0,0,0) 70%);
+    width: fit-content;
+    padding-right: 150px;
+    font-size: 18px;
+    padding-left: 5%;
+    margin-top: 0;
+    letter-spacing: 2px;
 	}
 	.SlideMenuItems{
 	display:inline-block;
@@ -399,22 +398,21 @@ text-align: center;
 	
 	.Center{
 		position: relative;
-		display: flex;
+		display: grid;
 		justify-content: space-evenly;
 		align-items: flex-start;
 	}
 	.MenuImg{
-		height:150px;
+		height:250px;
 	}
 
 	.slider1, .slider2, .slider3 {
-		display: none;
-		align-items: center;
-		flex-direction: column;
-		width:100px;
-		position: relative;
-		text-align: center;
-		font-family: "Gagalin";
+    align-items: center;
+    flex-direction: ;
+    width: 100px;
+    position: relative;
+    text-align: center;
+    margin: auto;
 	}
 	
 	.SlideMenu1, .SlideMenu2,.SlideMenu3{
@@ -429,37 +427,20 @@ text-align: center;
 	text-align:center;
 	margin-left: 50px;
 	margin-right: 50px;
-	border: 2px white solid;
-	font-family: "Gagalin";
 	}
-	
-	.SlideMenu1:hover, .SlideMenu2:hover,.SlideMenu3:hover{
-	color: #ff1900;
-	background-color: #6666;
-	border: 2px red solid;
-	
-	}
+
 	.MenuDetailsSections{
 		display: flex;
 		flex-direction: row;
 	}
 	.ProductBut{
 		height: 28px;
-		color: white;
-		background-color: #8888;
 		border: 0;
 		border-radius: 0;
-		border-right: 1px grey solid;
-		font-family: Gagalin;
 	}
-	.ProductBut:hover{
-		color: red;
-		background-color: #5555;
-	
-	}
+
 	.ProductTitle{
 		font-size: 30px;
-		color: white;
 		font-weight: 700;
 	}
 	.DetailsMenu1{
@@ -469,16 +450,13 @@ text-align: center;
 		display: none;
 	}
 	footer{
-		border-top: 2px red solid;
-		background-color: #111111;
-		border-bottom: 1px white solid;
 		width: 60%;
 		margin: auto;
 		display: flex;
 		align-self: flex-end;
 	}
 	.checked {
-		color: red;
+		
 	}
 	.ProductImg{
 		width:200px;
@@ -502,20 +480,13 @@ text-align: center;
 	.ProductbuyBut{
 		margin-top: 40px;
 		border: 0;
-		color: white;
 		font-weight: 600;
 		font-size: 14px;
 		padding: 5px;
-		background-color: #7777;
 		width:150px;
 		height:28px;
 	}
-	.ProductbuyBut:hover{
-		color: red;
-		background-color: #5555;
-		border: 1px white solid;
-		
-	}
+
 	.ProductSection{
 		border-top: 2px red solid;
 		background-color: #111111;
