@@ -1,9 +1,9 @@
-let cart = [];
-
+//let cart = [];
+var cart
 function AddToCart(ID){
-  
-  var HomePageText = firebase.database().ref('Products/' + ID);
-  HomePageText.on('value', (snapshot) => {
+   
+  var ProductInfoCart = firebase.database().ref('Products/' + ID);
+  ProductInfoCart.on('value', (snapshot) => {
     const data = snapshot.val();
 
     var item = {
