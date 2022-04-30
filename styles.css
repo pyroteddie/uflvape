@@ -5,6 +5,7 @@ font-family: Gagalin;
 color:white;
 padding:0%;
 margin: 0%;
+letter-spacing: 1px;
 background-image:   url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/Background.png');
 background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image */
@@ -242,7 +243,7 @@ ul.FavGall li {
   height: 200px;
   font-size:12px;
   white-space: normal;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgb(223 4 4);
 }
 .FavsGallery{
 	margin: auto;

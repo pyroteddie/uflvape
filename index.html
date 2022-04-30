@@ -1,6 +1,6 @@
 <html>
  <head>
-<title>UVJ</title>
+<title>UFL Vaping</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script src="script.js"></script>
 
@@ -14,7 +14,7 @@ h1{
 }
 
 </style>
-<h1 >UFL Vape</h1>
+<h1 >UFL Vaping</h1>
 <div class="NavBar">
 <button class="NavBarButton" onclick="location.href='./index.html'">HOME</button>
 <button class="NavBarButton" onclick="location.href='./pages/ComingSoon.html'">COMING SOON</button>
@@ -28,10 +28,13 @@ h1{
 
 <section>
 <div>
-<h3 class="Title">Welcome</h3>
-<p id="HomePageText" class="paddingText"></p>
-
+<h3 class="Title">Our Favioutes</h3>
+  <div Class='FavsGallery'>
+    <ul class="FavGall" id="FavGallery">
+    </ul>
+  </div>
 </div>
+
 </section>
 
 <section Class="menus">
@@ -47,7 +50,6 @@ h1{
   </div>
   <div class="SlideMenuItems" >
   <img Class="MenuImg" src='https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/4.png' Id="Menu2" onclick="Menu2Show()" onmouseover="Dessertshover(this);" onmouseout="Dessertsunhover(this);">
-    
         <div class="slider2" Id="slider2" style="display:none"> 
             
           </div>
@@ -62,27 +64,9 @@ h1{
 </section>
 <section>
 <div>
-<h3 class="Title">Our Favioutes</h3>
-<div Class='FavsGallery'>
-<ul class="FavGall" id="FavGallery">
-  <li onclick='ItemSelected("+ key +")' class='Favcontainer'>
-    <img src= " + childData.Image + " alt=" + childData.Name +" Class='Favimage'>
-    <div Class='Favoverlay'>
-      <p>" + childData.Name +"</p>
-      <p>" + childData.Rating +"</p>
-    </div>
-  </li>
-  <li onclick='ItemSelected("+ key +")' class='Favcontainer'>
-  <img src= " + childData.Image + " alt=" + childData.Name +" Class='Favimage'>
-  <div Class='Favoverlay'>
-    <p>" + childData.Name +"</p>
-    <p>" + childData.Rating +"</p>
-  </div>
-</li>
-</ul>
+<h3 class="Title">Welcome</h3>
+<p id="HomePageText" class="paddingText"></p>
 
-
-</div>
 </div>
 </section>
 <section>
