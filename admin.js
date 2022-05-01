@@ -436,6 +436,9 @@ Ordersref.on('value', (snapshot) => {
         var shipping = childData.orderData.purchase_units[0].shipping.address;
         var ShippingCost = childData.orderData.purchase_units[0].amount.breakdown.shipping.value;
         var client = childData.orderData.payer
+        var d = new.Date(childData.orderData.create_time)
+        var OrderDate = d.getDate() +"/"+ Number(d.getMonth() + 1) +"/"+ d.getFullYear() +" - " +d.getHours()+":"+d.getMinutes()
+
         Items.forEach(i => {
           OrderDetails += "<a>"+i.name+" 100ml x "+i.quantity + " = "+ Number(i.quantity) * Number(i.unit_amount.value) +" </a>" 
           TotalCost =  Number(TotalCost) + (Number(i.quantity) * Number(i.unit_amount.value))
@@ -443,7 +446,7 @@ Ordersref.on('value', (snapshot) => {
         console.log(TotalCost);
 
 
-        document.getElementById("OrderList").innerHTML += "  <div ><p onclick="+"ShowOrderCard("+key +") "+" class='OrderHead'> -> "+client.name.given_name +" "+client.name.surname+ " - Status: Pending <a style='margin-left:15px'>Order Placed: "+childData.orderData.create_time+"</a></p><div id="+key+" class='OrderCard'><div class='orderBox'><h2>Order</h2>"+OrderDetails+"<br><a>Total cost: $"+TotalCost+"</a><a>Shipping: $"+ShippingCost+"</a><a>Grand Total: $"+( Number(TotalCost) + Number(ShippingCost) )+ " </a></div><div class='orderBox'><h2>Shipping</h2><a>Name: "+client.name.given_name +" "+client.name.surname+ "</a><a>"+shipping.address_line_1 +"</a><a>"+shipping.admin_area_1+"</a><a>"+shipping.admin_area_2+"</a><a>"+shipping.country_code+"</a><a>"+shipping.postal_code+"</a></div><br><br><button >Complete</button></div></div>";
+        document.getElementById("OrderList").innerHTML += "  <div ><p onclick="+"ShowOrderCard('"+key +"') "+" class='OrderHead'> -> "+client.name.given_name +" "+client.name.surname+ " - Status: Pending <a style='margin-left:15px'>Order Placed: "+OrderDate+"</a></p><div id="+key+" class='OrderCard' style='display:none'><div class='orderBox'><h2>Order</h2>"+OrderDetails+"<br><a>Total cost: $"+TotalCost+"</a><a>Shipping: $"+ShippingCost+"</a><a>Grand Total: $"+( Number(TotalCost) + Number(ShippingCost) )+ " </a></div><div class='orderBox'><h2>Shipping</h2><a>Name: "+client.name.given_name +" "+client.name.surname+ "</a><a>"+shipping.address_line_1 +"</a><a>"+shipping.admin_area_1+"</a><a>"+shipping.admin_area_2+"</a><a>"+shipping.country_code+"</a><a>"+shipping.postal_code+"</a></div><br><br><button >Complete</button></div></div>";
     });
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject.name);
@@ -452,7 +455,8 @@ Ordersref.on('value', (snapshot) => {
 
 function ShowOrderCard(ID){
   var OrderDis = document.getElementById(ID).style;
-  if(OrderDis === 'none'){
+  
+  if(OrderDis.display === 'none'){
     OrderDis.display = 'inline-block';
   }else{
     OrderDis.display = 'none'
