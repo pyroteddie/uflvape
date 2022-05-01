@@ -172,7 +172,7 @@ function RemoveProduct(){
 
 function AddProduct(){
   var ProductLength = firebase.database().ref('Products');
-  ProductLength.onc('value', (snapshot) => {
+  ProductLength.once('value', (snapshot) => {
   ProLength = snapshot.val();
   console.log(ProLength);
   

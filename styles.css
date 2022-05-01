@@ -249,11 +249,13 @@ ul.FavGall li {
 	justify-content: center;
 	width: 100%;
 	height: 300px;
+	
 }
 .Favcontainer {
   position: relative;
   width: 50%;
   max-width: 300px;
+	
 }
 .Favimage {
   display: block;
