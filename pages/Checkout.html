@@ -100,28 +100,21 @@
   function PopulateCarList(){
     TotalSum = 0;
     document.getElementById("ProductCartList").innerHTML = "";
-    
-    
-    //TotalSum
     var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
-      console.log(cart[i].unit_amount.value)
-      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
-      TotalSum = TotalSum + Number(cart[i].unit_amount.value);
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
+      TotalSum = TotalSum + Number(cart[i].Price);
     }
     TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
     document.getElementById("TotalSum").innerHTML = TotalSum;
     document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
     document.getElementById("TotalDiscount").innerHTML = sessionStorage.TotalDiscount;
-    
-    //
    }
 
     var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
-      console.log(cart[i].unit_amount.value)
-      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].unit_amount.value +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
-      TotalSum = TotalSum + Number(cart[i].unit_amount.value);
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
+      TotalSum = TotalSum + Number(cart[i].Price);
     }
      TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
      document.getElementById("TotalSum").innerHTML = TotalSum;
@@ -161,11 +154,11 @@
             // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             const transaction = orderData.purchase_units[0].payments.captures[0];
-            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-            // When ready to go live, remove the alert and show a success message within this page. For example:
-            // const element = document.getElementById('paypal-button-container');
-            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-            // Or go to another URL:  actions.redirect('thank_you.html');
+            var AddOrder = firebase.database().ref('Orders/'+ orderData.id);
+                AddOrder.set({
+                  orderData
+                });
+
           });
         }
       }).render('#paypal-button-container');
