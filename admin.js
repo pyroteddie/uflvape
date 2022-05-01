@@ -418,3 +418,33 @@ fileButton.addEventListener('change', function(e){
   });
   });
 }); 
+
+
+/* ---------------------------------------- Order Section ----------------------------------------*/
+
+const Ordersref = firebase.database().ref('Orders');
+Ordersref.on('value', (snapshot) => {
+  //document.getElementById("OrderList").innerHTML = '';
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        var OrderDetails = ''; 
+        var TotalCost = '';
+
+        console.log(childData);
+        var Items = childData.orderData.purchase_units[0].items;
+        var shipping = childData.orderData.purchase_units[0].shipping.address;
+        var ShippingCost = childData.orderData.purchase_units[0].amount.breakdown.shipping.value;
+        var client = childData.orderData.payer
+        Items.forEach(i => {
+          OrderDetails += "<a>"+i.name+" 100ml x "+i.quantity + " = "+ Number(i.quantity) * Number(i.unit_amount.value) +" </a>" 
+          TotalCost =  Number(TotalCost) + (Number(i.quantity) * Number(i.unit_amount.value))
+        })
+        console.log(TotalCost);
+
+
+        document.getElementById("OrderList").innerHTML += "  <div ><p class='OrderHead'> -> "+client.name.given_name +" "+client.name.surname+ " - Status: Pending <a style='margin-left:15px'>Order Placed: "+childData.orderData.create_time+"</a></p><div class='OrderCard'><div class='orderBox'><h2>Order</h2>"+OrderDetails+"<br><a>Total cost: $"+TotalCost+"</a><a>Shipping: $"+ShippingCost+"</a><a>Grand Total: $"+( Number(TotalCost) + Number(ShippingCost) )+ " </a></div><div class='orderBox'><h2>Shipping</h2><a>Name: "+client.name.given_name +" "+client.name.surname+ "</a><a>"+shipping.address_line_1 +"</a><a>"+shipping.admin_area_1+"</a><a>"+shipping.admin_area_2+"</a><a>"+shipping.country_code+"</a><a>"+shipping.postal_code+"</a></div><br><br><button >Complete</button></div></div>";
+    });
+}, (errorObject) => {
+  console.log('The read failed: ' + errorObject.name);
+});

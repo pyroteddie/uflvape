@@ -355,7 +355,7 @@ h1{
   }
 
 .OrderCard{
-  display: inline-block;
+  display: none;
     border: white solid 2px;
     padding: 10;
     margin: 10px;
@@ -371,4 +371,12 @@ h1{
   text-shadow: 2px 2px crimson;
   border-bottom: 2px solid crimson;
 }
+#OrderList{
+  min-height: 200px;
+}
+
+
+
+
+
 }
