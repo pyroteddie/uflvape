@@ -343,7 +343,7 @@ text-align: center;
 	display: inline-block;
 	width: 450px;
 }
-@media screen and (max-width: 45px) {
+@media screen and (max-width: 450px) {
 
 	section{
 		width: 100%;
@@ -616,4 +616,8 @@ text-align: center;
 
 
 
+}
+@media screen and (max-width:2560px){
+
+	
 }
