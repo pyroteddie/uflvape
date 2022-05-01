@@ -174,11 +174,7 @@ function AddProduct(){
   var ProductLength = firebase.database().ref('Products');
   ProductLength.once('value', (snapshot) => {
   ProLength = snapshot.val();
-  console.log(ProLength);
   
-
-  console.log( ProLength.length);
-
   var GetEditProductInfo = firebase.database().ref('Products/'+ ProLength.length);
   GetEditProductInfo.set({
   Name: document.getElementById("AddProName").value,
