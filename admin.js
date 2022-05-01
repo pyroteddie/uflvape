@@ -74,7 +74,7 @@ const ref = firebase.database().ref('Discounts');
 ref.on('value', (snapshot) => {
   document.getElementById("CodeContainer").innerHTML = ''
   var Codequery = firebase.database().ref("Discounts").orderByKey();
-Codequery.once("value")
+  Codequery.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
@@ -172,7 +172,7 @@ function RemoveProduct(){
 
 function AddProduct(){
   var ProductLength = firebase.database().ref('Products');
-  ProductLength.on('value', (snapshot) => {
+  ProductLength.onc('value', (snapshot) => {
   ProLength = snapshot.val();
   console.log(ProLength);
   
