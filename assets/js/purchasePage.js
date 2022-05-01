@@ -1,5 +1,5 @@
 //let cart = [];
-var cart
+var cart = [];
 function AddToCart(ID){
    
   var ProductInfoCart = firebase.database().ref('Products/' + ID);
