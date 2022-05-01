@@ -1,3 +1,9 @@
+if(sessionStorage.Cart === undefined){
+  sessionStorage.setItem('VotedFor',JSON.stringify([]))
+}else{
+
+}
+var votes; 
 var Experquery = firebase.database().ref("Experimental").orderByKey();
 Experquery.on("value", (snapshot) => {
   document.getElementById("VoteProdContainer").innerHTML = ""
@@ -13,7 +19,10 @@ Experquery.on("value", (snapshot) => {
 });
 
 function SendVoteU(ID){
-  sessionStorage.setItem('VotedFor', JSON.stringify([{'ProductID':ID,'Voted':'Yes'}]))
+  votes = JSON.parse(sessionStorage.VotedFor);
+  votes.push({'ProductID':ID,'Voted':'Yes'});
+  sessionStorage.setItem('VotedFor', JSON.stringify(votes));
+
   var VotesUpText = firebase.database().ref('Experimental/'+ID+'/Votes');
   VotesUpText.once('value', (snapshot) => {
   const data = snapshot.val();
@@ -22,7 +31,10 @@ function SendVoteU(ID){
 });
 }
 function SendVoteD(ID){
-  sessionStorage.setItem('VotedFor', JSON.stringify([{'ProductID':ID,'Voted':'Yes'}]))
+  votes = JSON.parse(sessionStorage.VotedFor);
+  votes.push({'ProductID':ID,'Voted':'Yes'});
+  sessionStorage.setItem('VotedFor', JSON.stringify(votes));
+
   var VotesDownText = firebase.database().ref('Experimental/'+ID+'/Votes');
   VotesDownText.once('value', (snapshot) => {
     const data = snapshot.val();

@@ -13,7 +13,10 @@ firebase.initializeApp(firebaseConfig);
 
 let ProductSelected = -1;
 let LabProductSelected = -1;
-let ImgURLUploaded = null;
+let ImgURLUploaded1 = null;
+let ImgURLUploaded2 = null;
+let ImgURLUploaded3 = null;
+let ImgURLUploaded4 = null;
 
 function SignIn(){
   var Email = document.getElementById("SignInEmail").value
@@ -122,7 +125,7 @@ function ItemSelected(ID){
 }
 
 
-var uploader = document.getElementById('Adduploader');
+var uploader1 = document.getElementById('Adduploader');
 var fileButton = document.getElementById('AddProImgUpload');
 fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -130,20 +133,21 @@ fileButton.addEventListener('change', function(e){
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader.value = percentage;
+    uploader1.value = percentage;
 
   }, function error(err) {
 
 
   },function complete() {
   task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-    ImgURLUploaded= downloadURL;
+    ImgURLUploaded1= downloadURL;
+    document.getElementById('AddProImg').src = ImgURLUploaded1;
   });
   });
 }); 
 
 
-var uploader = document.getElementById('uploader');
+var uploader2 = document.getElementById('uploader');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -151,14 +155,15 @@ fileButton.addEventListener('change', function(e){
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader.value = percentage;
+    uploader2.value = percentage;
 
   }, function error(err) {
 
 
   },function complete() {
   task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-    ImgURLUploaded= downloadURL;
+    ImgURLUploaded2= downloadURL;
+    document.getElementById('edProImg').src = ImgURLUploaded2;
   });
   });
 }); 
@@ -184,7 +189,7 @@ function AddProduct(){
   ID: document.getElementById("AddProID").value,
   Rating: document.getElementById("AddProRate").value,
   Category: document.getElementById("AddProCat").value,
-  Image: ImgURLUploaded,
+  Image: ImgURLUploaded1,
   });
   });
 }
@@ -199,7 +204,7 @@ function UpdateProduct(){
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
-  Image: ImgURLUploaded || document.getElementById("edProImg").src ,
+  Image: ImgURLUploaded2 || document.getElementById("edProImg").src ,
 });
 }
 
@@ -332,7 +337,7 @@ function AddLabProduct(){
   Ingredients: document.getElementById("AddLabProIng").value,
   ID: document.getElementById("AddLabProID").value,
   Category: document.getElementById("AddLabProCat").value,
-  Image: ImgURLUploaded,
+  Image: ImgURLUploaded3,
   Votes:{Up:0,Down:0}
   });
   });
@@ -348,7 +353,7 @@ function UpdateLabProduct(){
   ID: document.getElementById("edLabProID").value,
   Rating: document.getElementById("edLabProRate").value,
   Category: document.getElementById("edLabProCat").value,
-  Image: ImgURLUploaded || document.getElementById("edLabProImg").src ,
+  Image: ImgURLUploaded4 || document.getElementById("edLabProImg").src ,
 });
 }
 
@@ -365,7 +370,7 @@ Experimentalref.on('value', (snapshot) => {
   console.log('The read failed: ' + errorObject.name);
 });
 
-var uploader = document.getElementById('AddLabuploader');
+var uploader3 = document.getElementById('AddLabuploader');
 var fileButton = document.getElementById('AddLabProImgUpload');
 fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -373,18 +378,19 @@ fileButton.addEventListener('change', function(e){
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader.value = percentage;
+    uploader3.value = percentage;
 
   }, function error(err) {
-
+    alert(err)
 
   },function complete() {
   task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-    ImgURLUploaded= downloadURL;
+    ImgURLUploaded3 = downloadURL;
+    document.getElementById('AddLabProImg').src = ImgURLUploaded3;
   });
   });
 }); 
-var uploader = document.getElementById('Labuploader');
+var uploader4 = document.getElementById('Labuploader');
 var fileButton = document.getElementById('edLabProImgUpload');
 fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -392,14 +398,15 @@ fileButton.addEventListener('change', function(e){
   var task = storageRef.put(file);
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-    uploader.value = percentage;
+    uploader4.value = percentage;
 
   }, function error(err) {
-
+    alert(err)
 
   },function complete() {
   task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-    ImgURLUploaded= downloadURL;
+    ImgURLUploaded4 = downloadURL;
+    document.getElementById('edLabProImg').src = ImgURLUploaded4;
   });
   });
 }); 

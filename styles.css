@@ -511,10 +511,13 @@ text-align: center;
 	ul.FavGall li {
 		display: inline-block;
 		width: 200px;
-		height: 200px;
+		height: 225px;
 		font-size:12px;
 		white-space: normal;
 		box-shadow: 0 4px 8px 0 rgb(223 4 4);
+		min-width: 150px;
+    margin-left: 2px;
+    margin-right: 2px;
 	}
 	.FavsGallery{
 		margin: auto;
@@ -537,15 +540,15 @@ text-align: center;
 		opacity: 1;
 	}
 	.Favoverlay {
-		position: absolute; 
-		bottom: 0; 
-		background: rgb(0, 0, 0);
-		background: rgba(0, 0, 0, 0.5); /* Black see-through */
-		color: #f1f1f1; 
-		width: 100%;
-		transition: .5s ease;
-		opacity:0;
-		font-size: 14px;
+    position: relative;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 1;
+    font-size: 14px;
 	
 	}
 	.Cartimage{
@@ -554,7 +557,7 @@ text-align: center;
 	.CartItemCon{
 		margin: 5px;
 		border-bottom: #ff1900 solid 2px;
-		width: 400px;
+		width: -webkit-fill-available;
 	}
 	.Cart{
 		display: inline-block;
@@ -607,6 +610,7 @@ text-align: center;
 	}
 	#VoteProduct{
 		display: flex;
+		margin-bottom: 5px;
 	
 	}
 	#InfoContainer{

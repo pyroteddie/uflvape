@@ -6,7 +6,7 @@ if(sessionStorage.Cart === undefined){
 }
 
 function AddToCart(ID){
-  cart = JSON.parse(sessionStorage.Cart ) || [];
+  cart = JSON.parse(sessionStorage.Cart);
 
   var ProductInfoCart = firebase.database().ref('Products/' + ID);
   ProductInfoCart.once('value', (snapshot) => {
