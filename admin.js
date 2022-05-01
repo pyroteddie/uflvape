@@ -436,7 +436,7 @@ Ordersref.on('value', (snapshot) => {
         var shipping = childData.orderData.purchase_units[0].shipping.address;
         var ShippingCost = childData.orderData.purchase_units[0].amount.breakdown.shipping.value;
         var client = childData.orderData.payer
-        var d = new.Date(childData.orderData.create_time)
+        var d = new Date(childData.orderData.create_time)
         var OrderDate = d.getDate() +"/"+ Number(d.getMonth() + 1) +"/"+ d.getFullYear() +" - " +d.getHours()+":"+d.getMinutes()
 
         Items.forEach(i => {

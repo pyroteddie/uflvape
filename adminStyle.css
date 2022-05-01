@@ -370,6 +370,8 @@ h1{
   padding-left: 15;
   text-shadow: 2px 2px crimson;
   border-bottom: 2px solid crimson;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 #OrderList{
   min-height: 200px;
