@@ -354,6 +354,21 @@ h1{
     font-size:40px;
   }
 
-
-
+.OrderCard{
+  display: inline-block;
+    border: white solid 2px;
+    padding: 10;
+    margin: 10px;
+}
+.orderBox{
+  display: inline-grid;
+  margin-right: 45px;
+}
+.OrderHead{
+  width: 100%;
+  background: black;
+  padding-left: 15;
+  text-shadow: 2px 2px crimson;
+  border-bottom: 2px solid crimson;
+}
 }
