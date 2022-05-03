@@ -259,8 +259,8 @@ ul.FavGall li {
 }
 .Favimage {
   display: block;
-  width: 100%;
-  height: auto;
+	width: -webkit-fill-available;
+	height: 150px;
 }
 .Favcontainer:hover .Favoverlay {
 	opacity: 1;
@@ -533,8 +533,8 @@ text-align: center;
 	}
 	.Favimage {
 		display: block;
-		width: 100%;
-		height: auto;
+		width: -webkit-fill-available;
+    height: 150px;
 	}
 	.Favcontainer:hover .Favoverlay {
 		opacity: 1;
