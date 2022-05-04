@@ -16,6 +16,7 @@ function AddToCart(ID){
         "name": data.Name,
         "description": data.ID,
         "Image" :data.Image,
+        "Price": data.Price,
         "unit_amount": {
           "currency_code": "AUD",
           "value": data.Price
@@ -41,6 +42,7 @@ function AddToCart(ID){
           "name": data.Name,
           "description": data.ID,
           "Image" :data.Image,
+          "Price": data.Price,
           "unit_amount": {
             "currency_code": "AUD",
             "value": data.Price
