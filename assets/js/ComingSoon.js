@@ -1,4 +1,4 @@
-if(sessionStorage.Cart === undefined){
+if(sessionStorage.VotedFor === undefined){
   sessionStorage.setItem('VotedFor',JSON.stringify([]))
 }else{
 

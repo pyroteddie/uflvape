@@ -117,7 +117,7 @@ function ItemSelected(ID){
     document.getElementById("edProID").value = data.ID;
     document.getElementById("edProRate").value = data.Rating;
     document.getElementById("edProCat").value = data.Category;
-    document.getElementById("edProPrice").value = data.P;
+    document.getElementById("edProPrice").value = data.Price;
     
 
   });

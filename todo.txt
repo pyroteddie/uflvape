@@ -1,0 +1,13 @@
+
+-------TODO Website---------
+try rjected payapl - not enough monies
+add thank for your purhcase
+add t&c
+adjust fav image
+test promo code
+add logic for completed order button - admin page
+create contact form - through firebase
+add soicals and fix footers 
+
+fix cart counter
+add response to add to cart.
