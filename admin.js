@@ -117,6 +117,7 @@ function ItemSelected(ID){
     document.getElementById("edProID").value = data.ID;
     document.getElementById("edProRate").value = data.Rating;
     document.getElementById("edProCat").value = data.Category;
+    document.getElementById("edProPrice").value = data.P;
     
 
   });
@@ -179,7 +180,6 @@ function AddProduct(){
   var ProductLength = firebase.database().ref('Products');
   ProductLength.once('value', (snapshot) => {
   ProLength = snapshot.val();
-  
   var GetEditProductInfo = firebase.database().ref('Products/'+ ProLength.length);
   GetEditProductInfo.set({
   Name: document.getElementById("AddProName").value,
