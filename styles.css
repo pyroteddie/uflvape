@@ -11,6 +11,11 @@ background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image */
   background-size: 150px; /* Resize the background image to cover the entire container */
 }
+.contactform{
+	display: inline-grid;
+	width: -webkit-fill-available;
+	justify-content: center;
+}
 
 .NavBar{
 	background-color: #1d1d1d;
