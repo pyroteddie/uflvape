@@ -1,6 +1,5 @@
 <?php
 // Multiple recipients
-function SendMail(){
 $to = 'liammatulick@gmail.com'; // note the comma
 
 // Subject
@@ -39,5 +38,9 @@ $headers[] = 'From: contact@uflvaping.com';
 // Mail it
 
 mail($to, $subject, $message, implode("\r\n", $headers));
+$success = mail($to, $subject, $message, implode("\r\n", $headers));
+if (!$success) {
+    $errorMessage = error_get_last()['message'];
+    echo $errorMessage;
 }
 ?>
