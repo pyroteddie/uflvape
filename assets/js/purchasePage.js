@@ -63,10 +63,9 @@ Menuquery.once("value")
     snapshot.forEach(function(childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      
-      var itemCat = childData.ProductFav
+      var itemCat = childData.Fav
 
-      if (itemCat === 'true' || 'on' ){
+      if (itemCat === 'on' ){
         document.getElementById("FavGallery").innerHTML += "<li onclick='ProductPage("+ key +")' class='Favcontainer'><img src= " + childData.Image + " alt=" + childData.Name +" Class='Favimage'><div Class='Favoverlay'><p>" + childData.Name +"</p><p>$" + childData.Price +"</p></div></li >";
       
       } 

@@ -253,15 +253,16 @@ ul.FavGall {
   
 }
 ul.FavGall li {
-  display: inline-block;
-  width: 200px;
-  height: 225px;
-  font-size:12px;
-  white-space: normal;
-  box-shadow: 0 4px 8px 0 rgb(223 4 4);
+	display: inline-block;
+	width: 150px;
+	min-width: 150px;
+	height: 225px;
+	font-size: 12px;
+	white-space: normal;
+	box-shadow: 0 4px 8px 0 rgb(223 4 4);
 	margin-left: 2px;
 	margin-right: 2px;
-	
+
 }
 .FavsGallery{
 	margin: auto;
