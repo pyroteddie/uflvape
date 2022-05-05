@@ -26,7 +26,7 @@
 
 <body>
   <section>
-    <form  action="SendMail()" method="post" class="contactform">
+    <form  action="sendMail.php" method="post" class="contactform">
     <a>Contact Us</a>
     <label>Full Name</label>
     <input type="text"/>
@@ -40,7 +40,7 @@
 
 </body>
 <?php // Multiple recipients 
-function SendMail(){ 
+
   $to = 'liammatulick@gmail.com';
 $subject = 'Test';
 $message = 'test body';
@@ -55,7 +55,7 @@ $headers[] = 'From: contact@uflvaping.com';
 // Mail it
 
 mail($to, $subject, $message, implode("\r\n", $headers));
-}
+
 ?>
 
 </html>
