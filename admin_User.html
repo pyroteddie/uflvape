@@ -4,11 +4,9 @@
 <link rel="stylesheet" type="text/css" href="./styles.css">
 <link rel="stylesheet" type="text/css" href="./adminStyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="AuthCheck.js"></script>
+
 <style>
 @font-face { font-family: Gagalin; src: url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/fonts/Gagalin.otf?raw=true') format('opentype')}
-
-
 </style>
 <h1 >UFL Admin</h1>
 <div class="NavBar">
@@ -45,6 +43,8 @@
       <input id='AddProID' placeholder="Product ID">
       <input id='AddProRate' placeholder="Product Rating">
       <input id='AddProPrice' placeholder="Product Price">
+      <label>Add to Favioute</label>
+      <input id='AddProFav' type="checkbox">
       <select id="AddProCat">
       <option value="Select">Select</option>
       <option value="Dessert">Dessert</option>
@@ -66,9 +66,11 @@
       <input id='edProID'  placeholder="Product ID" type="number">
       <input id='edProRate'  placeholder="Product Rating" type="number">
       <input id='edProPrice' placeholder="Product Price">
+      <label>Add to Favioute</label>
+      <input id='edProFav' type="checkbox">
       <select id="edProCat"><option value="Select">Select</option><option value="Dessert">Dessert</option><option value="Fruit">Fruit</option><option value="Drink">Drink</option></select>
       <input id='edProImgUpload'  placeholder="Upload Image" type="file">
-      <progress id="uploader" value="0" max="100">0%</progress>
+      <progress id="uploader2" value="0" max="100">0%</progress>
       <button class="ControlBut" onclick='UpdateProduct()'>Update Product</button>
       <button class="ControlBut" onclick='RemoveProduct()'>Remove Product</button>
     </div>
@@ -77,6 +79,7 @@
 </div>
 </div>
 </section>
+
 <section>
 <h3>Discount Codes</h3>
 <button class='Buttons' onclick='ShowAddCode()'>Create</button>
@@ -145,22 +148,16 @@
 <section>
 <h3>Orders</h3>
 <div id="OrderList">
-
-
 </div>
-
 </section>
 
 <section>
 <h3>Gallery</h3>
-
-
 </section>
 
 
-
-
 </body>
+
 <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script src="admin.js"></script>
 </html>

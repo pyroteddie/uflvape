@@ -10,13 +10,13 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 let ProductSelected = -1;
 let LabProductSelected = -1;
 let ImgURLUploaded1 = null;
 let ImgURLUploaded2 = null;
 let ImgURLUploaded3 = null;
 let ImgURLUploaded4 = null;
+
 
 function SignIn(){
   var Email = document.getElementById("SignInEmail").value
@@ -26,7 +26,7 @@ function SignIn(){
   .then((userCredential) => {
     var user = userCredential.user;
     
-    sessionStorage.setItem("SignedIn", "True");
+    sessionStorage.setItem("SignedIn", true);
     location.replace("./admin_User.html");
     
   })
@@ -34,9 +34,11 @@ function SignIn(){
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log("Login failed");
-    sessionStorage.setItem("SignedIn", "False");
+    sessionStorage.setItem("SignedIn", false);
   });
 }
+
+
 
 var HomePageText = firebase.database().ref('HomePage/HomeNews/');
 HomePageText.on('value', (snapshot) => {
@@ -148,7 +150,7 @@ fileButton.addEventListener('change', function(e){
 }); 
 
 
-var uploader2 = document.getElementById('uploader');
+var uploader2 = document.getElementById('uploader2');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
   var file = e.target.files[0];
@@ -186,6 +188,7 @@ function AddProduct(){
   About: document.getElementById("AddProDis").value,
   Ingredients: document.getElementById("AddProIng").value,
   Price: document.getElementById("AddProPrice").value,
+  Fav: document.getElementById('AddProFav').Value,
   ID: document.getElementById("AddProID").value,
   Rating: document.getElementById("AddProRate").value,
   Category: document.getElementById("AddProCat").value,
@@ -201,6 +204,7 @@ function UpdateProduct(){
   About: document.getElementById("edProDis").value,
   Ingredients: document.getElementById("edProIng").value,
   Price: document.getElementById("edProPrice").value,
+  Fav: document.getElementById('edProFav').Value,
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
