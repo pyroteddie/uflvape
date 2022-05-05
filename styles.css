@@ -348,6 +348,12 @@ text-align: center;
 	display: inline-block;
 	width: 450px;
 }
+#VoteProdContainer{
+	display: flex;
+	justify-content: center;
+	position: relative;
+
+}
 @media screen and (max-width: 800px) {
 
 	section{
@@ -612,6 +618,296 @@ text-align: center;
 	.VoteImg{
 		height: 180px;
 		margin-right: 10px;
+	}
+	#VoteProduct{
+		display: flex;
+		margin-bottom: 5px;
+	
+	}
+	#InfoContainer{
+		display: inline-block;
+		width: 450px;
+	}
+
+
+
+}
+@media screen and (min-width: 801px ) and (max-width: 1440px) {
+
+	section{
+		width: 90%;
+		position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin:auto;
+	}
+
+	.NavBar{
+		width: 90%;
+		height: 40px;
+    align-items: end;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+ 	}
+	.NavBarButton{
+		height: 40px;
+		font-size: 30px;
+	}
+	dt{
+		font-size: 28px;
+	}
+
+	.menus{
+		position:relative;
+		height: fit-content;
+	}
+	.paddingText{
+		padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    width: 90%;
+    margin: auto;
+	
+	}
+	p{
+		padding:0;
+		margin:0;
+	}
+	
+	.Title{
+    background-image: linear-gradient( 166deg, red 60%, RGBA(0,0,0,0) 70%);
+    width: fit-content;
+    padding-right: 250px;
+    font-size: 30px;
+    padding-left: 5%;
+    margin-top: 0;
+    letter-spacing: 2px;
+	}
+
+	.SlideMenuItems{
+    display: inline-block;
+    width: 300px;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+	}
+	
+	.Center{
+		position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+	}
+	.MenuImg{
+		height:350px;
+	}
+
+	.slider1, .slider2, .slider3 {
+    align-items: center;
+    
+    width: fit-content;
+    position: relative;
+    text-align: center;
+    margin: auto;
+		padding-bottom: 20px;
+	}
+	
+	.SlideMenu1, .SlideMenu2,.SlideMenu3{
+	position: absolute;
+	top:0;
+	font-size: large;
+	vertical-align: sub;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	line-height:200px;
+	text-align:center;
+	margin-left: 50px;
+	margin-right: 50px;
+	}
+
+	.MenuDetailsSections{
+		display: flex;
+		flex-direction: row;
+	}
+	.ProductBut{
+		height: 28px;
+		border: 0;
+		border-radius: 0;
+	}
+
+	.ProductTitle{
+		font-size: 30px;
+		font-weight: 700;
+	}
+	.DetailsMenu1{
+		display: block;
+	}
+	.DetailsMenu2,.DetailsMenu3{
+		display: none;
+	}
+	footer{
+		width: 90%;
+    margin: auto;
+    display: flex;
+    align-self: flex-end;
+    height: 150px;
+	}
+	.checked {
+		
+	}
+	.ProductImg{
+		width:200px;
+		height: 200px;
+	}
+	.ProductHead{
+		margin-left: 5px;
+    height: 500px;
+	}
+	.ProductInformation{
+		display: flex;
+		flex-direction: row;
+		margin-bottom:25px;
+		margin-top: 15px;
+	}
+	.ProductDetails{
+		margin-left:20px;
+		margin-top: 15px;
+	
+	}
+	.ProductbuyBut{
+		margin-top: 40px;
+		border: 0;
+		font-weight: 600;
+		font-size: 14px;
+		padding: 5px;
+		width:150px;
+		height:28px;
+	}
+
+	.ProductSection{
+		border-top: 2px red solid;
+		background-color: #111111;
+		border-bottom: 1px white solid;
+	}
+	.SignInBox{
+		display: grid;
+		justify-content: center;
+	}
+	
+	ul.FavGall {
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		overflow-x: auto;
+		align-content: end;
+		display: flex;
+		
+	}
+	ul.FavGall li {
+		display: inline-block;
+    width: 300px;
+    height: fit-content;
+    font-size: 12px;
+    white-space: normal;
+    box-shadow: 0 4px 8px 0 rgb(223 4 4);
+    min-width: 300px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 15px;
+	}
+	.FavsGallery{
+		margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+	}
+	.Favcontainer {
+		position: relative;
+		width: 50%;
+		max-width: 300px;
+	}
+	.Favimage {
+		display: block;
+		width: -webkit-fill-available;
+    height: 300px;
+	}
+	.Favcontainer:hover .Favoverlay {
+		opacity: 1;
+	}
+	.Favoverlay {
+    position: relative;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 1;
+    font-size: 22px;
+	
+	}
+	.Cartimage{
+		height:150px;
+	}
+	.CartItemCon{
+		margin: 5px;
+		border-bottom: #ff1900 solid 2px;
+		width: -webkit-fill-available;
+	}
+	.Cart{
+		display: inline-block;
+		margin:5px;
+	}
+	.CartButContainer{
+	display: flex;
+	}
+	.CartBut{
+	height: 40px;
+	filter: invert(20%) sepia(95%) saturate(4918%) hue-rotate(1deg) brightness(107%) contrast(110%);
+	}
+	.checkoutSection{
+		display: flex;
+    justify-content: center;
+		padding-bottom: 300px;
+	}
+	.PayBox{
+		width:400px;
+    display: block;
+		margin-left: 50px;
+	}
+	#ProductCartList{
+		display: inline-block;
+	}
+	#CartLength{
+	background-color: #f1f1f1;
+	color: #1d1d1d;
+	display: block;
+	height: 15px;
+	width: 15px;
+	border-radius: 10px;
+	line-height: .9;
+	text-align: center;
+	}
+	
+	.VoteTitle{
+		font-size: 30px;
+		color: crimson;
+		text-shadow: 1px 2px white;
+		margin-bottom: 5px;
+	}
+	.VoteABout{
+		margin-bottom: 5px;
+	}
+	.VoteIng{
+		margin-bottom: 5px;
+	}
+	.VoteImg{
+		height: 300px;
+    margin-right: 10px;
 	}
 	#VoteProduct{
 		display: flex;
