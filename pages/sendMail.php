@@ -52,12 +52,12 @@ if (!$success) {
 <body>
   <section>
     <div  class="contactform">
+    <span><a>Thank you 
       <?php 
-      echo "<h1>";
       echo $_POST['FullName']  ;
-      echo "</h1>" ;
-      
       ?>
+      one of our costomer Support Officers will be in touch with you. </a>
+      <p>Be sure to check your spam folder, If you have not recieved an reply.</p>
     </div >
   </section>
 
