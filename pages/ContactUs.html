@@ -29,34 +29,17 @@
     <form  action="sendMail.php" method="post" class="contactform">
     <a>Contact Us</a>
     <label>Full Name</label>
-    <input type="text"/>
+    <input type="text" name="FullName"/>
     <label>Email</label>
-    <input type="text"/>
+    <input type="text" name="Email"/>
     <label>information</label>
-    <textarea></textarea>
+    <textarea name="Info"></textarea>
     <input type="submit" />
     </form >
   </section>
 
 </body>
-<?php // Multiple recipients 
 
-  $to = 'liammatulick@gmail.com';
-$subject = 'Test';
-$message = 'test body';
-
-// To send HTML mail, the Content-type header must be set
-$headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
-// Additional headers
-$headers[] = 'From: contact@uflvaping.com';
-
-// Mail it
-
-mail($to, $subject, $message, implode("\r\n", $headers));
-
-?>
 
 </html>
 
