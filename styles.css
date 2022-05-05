@@ -15,6 +15,7 @@ background-position: center; /* Center the image */
 	display: inline-grid;
 	width: -webkit-fill-available;
 	justify-content: center;
+	margin: 20px;
 }
 
 .NavBar{
@@ -172,8 +173,8 @@ border: 2px red solid;
 .ProductBut:hover{
 	color: red;
 	background-color: #5555;
-
 }
+
 .ProductTitle{
 	font-size: 30px;
 	color: white;
@@ -634,7 +635,7 @@ text-align: center;
 		margin-bottom: 5px;
 	}
 	.VoteImg{
-		height: 180px;
+		height: 150px;
 		margin-right: 10px;
 	}
 	#VoteProduct{
@@ -644,7 +645,7 @@ text-align: center;
 	}
 	#InfoContainer{
 		display: inline-block;
-		width: 450px;
+		width: fit-content;
 	}
 
 
