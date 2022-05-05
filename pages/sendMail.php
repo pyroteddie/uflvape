@@ -43,7 +43,7 @@ if (!$success) {
     $errorMessage = error_get_last()['message'];
     echo $errorMessage;
 }
-echo $message;
+echo $success;
 ?>
 <html>
 <head></Head>
