@@ -38,15 +38,16 @@ h1{
     <div>
       <a>Rating</a>
       <div id="StarRating">
-        
       </div>
     </div>
     
   </div>
 </section>
 
-
-<div><button class="ProductBut" onclick="Product1Show()">Details</button><button class="ProductBut" onclick="Product2Show()">Ingredients</button><button class="ProductBut" onclick="Product3Show()">Customer Reviews</button></div>
+<div class="ProductInformationBar"> 
+<div>
+  <button class="ProductBut" onclick="Product1Show()">Details</button><button class="ProductBut" onclick="Product2Show()">Ingredients</button><button class="ProductBut" onclick="Product3Show()">Customer Reviews</button>
+</div>
 
 <div class="MenuDetailsSections">
   <div class="DetailsMenu1" id="DetailsMenu1" style="display:block">
@@ -64,11 +65,16 @@ h1{
   </div>
 </div>
 </div>
+</div>
 
 </section>
-<div class="ProductHead">
-Other Favioute products
-</div>
+<section class="ProductHead">
+  <h3 class="Title">Other Favioute products</h3>
+  <div Class='FavsGallery'>
+  <ul class="FavGall" id="FavGallery">
+  </ul>
+  </div>
+</section>
 
 <footer class="ProductSection">
 <div>
@@ -90,7 +96,7 @@ HomePageText.on('value', (snapshot) => {
   document.getElementById("ProductName").innerHTML = data.Name;
   document.getElementById("ProductImage").src = data.Image;
   document.getElementById("DetailsMenu1").innerHTML = "<p>"+data.About+"</p>";
-  document.getElementById("DetailsMenu2").innerHTML = "<p>"+data.Ingredients+"</p>";
+  document.getElementById("DetailsMenu2").innerHTML = "<p class='IngreClass'>"+data.Ingredients+"</p>";
 
   document.getElementById("StarRating").value = data.Rating;
   for (var i=0;i< 5; i++){
@@ -101,6 +107,7 @@ HomePageText.on('value', (snapshot) => {
     }
 
   }
+  document.getElementById("ProductDetailsContainer").innerHTML += "<br><p>$ "+ data.Price+" - 100ml </p>"
   document.getElementById("ProductDetailsContainer").innerHTML += '<button class="ProductbuyBut" onclick="AddToCart('+ ProID +')">Add to Cart</button>'
   //ProductName
   //ProductImage

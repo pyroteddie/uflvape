@@ -148,6 +148,15 @@ border: 2px red solid;
 	display: flex;
 	flex-direction: row;
 }
+.ProductInformationBar{
+	width: 60%;
+	height: 40px;
+	align-items: end;
+	display: block;
+	justify-content: center;
+	margin: auto;
+
+}
 .ProductBut{
 	height: 28px;
 	color: white;
@@ -173,6 +182,9 @@ border: 2px red solid;
 .DetailsMenu2,.DetailsMenu3{
 	display: none;
 }
+.IngreClass{
+	white-space: pre;
+}
 footer{
 	border-top: 2px red solid;
 	background-color: #111111;
@@ -181,6 +193,7 @@ footer{
 	margin: auto;
 	display: flex;
 	align-self: flex-end;
+	height: 150px;
 }
 .checked {
   color: red;
@@ -190,7 +203,6 @@ footer{
 	height: 200px;
 }
 .ProductHead{
- margin-left: 20%;
  height:500px;
 }
 .ProductInformation{
@@ -243,10 +255,12 @@ ul.FavGall {
 ul.FavGall li {
   display: inline-block;
   width: 200px;
-  height: 200px;
+  height: 225px;
   font-size:12px;
   white-space: normal;
   box-shadow: 0 4px 8px 0 rgb(223 4 4);
+	margin-left: 2px;
+	margin-right: 2px;
 }
 .FavsGallery{
 	margin: auto;
@@ -272,8 +286,7 @@ ul.FavGall li {
 }
 .Favoverlay {
   position: absolute; 
-  bottom: 0; 
-  background: rgb(0, 0, 0);
+  margin-top: 5px;
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1; 
   width: 100%;
