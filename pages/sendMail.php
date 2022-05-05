@@ -44,3 +44,7 @@ if (!$success) {
     echo $errorMessage;
 }
 ?>
+<html>
+<head></Head>
+<body><h1>Sending Email!</h1></body>
+</html>
