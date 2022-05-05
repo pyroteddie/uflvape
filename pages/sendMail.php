@@ -1,14 +1,19 @@
 <?php
 $to = 'liammatulick@gmail.com'; 
-$subject = 'Test';
-$message = '
+$subject = 'Customer Support';
+$FullName = $_POST['FullName']
+$Email = $_POST['Email']
+$Info = $_POST['Info']
+$message = "
 <html>
 <body>
-  <p>Someone is trying to contact you</p>
+  <p>Name: </p>{$FullName}</p>
+  <p>{$Email}<p>
+  <p>{$Info}</p>
 
 </body>
 </html>
-';
+";
 
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-type: text/html; charset=iso-8859-1';
