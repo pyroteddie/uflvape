@@ -120,7 +120,7 @@ function ItemSelected(ID){
     document.getElementById("edProRate").value = data.Rating;
     document.getElementById("edProCat").value = data.Category;
     document.getElementById("edProPrice").value = data.Price;
-    
+    document.getElementById('edProFav').Value = data.Fav;
 
   });
 
@@ -210,6 +210,17 @@ function UpdateProduct(){
   Category: document.getElementById("edProCat").value,
   Image: ImgURLUploaded2 || document.getElementById("edProImg").src ,
 });
+document.getElementById("edProImg").src = "";
+document.getElementById("edProName").value = "";
+document.getElementById("edProDis").value = "";
+document.getElementById("edProIng").value = "";
+document.getElementById("edProID").value = "";
+document.getElementById("edProRate").value = "";
+document.getElementById("edProCat").value = "";
+document.getElementById("edProPrice").value = "";
+document.getElementById('edProFav').Value = "";
+
+
 }
 
 function HidePEditCard(){
