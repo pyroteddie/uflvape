@@ -1,15 +1,15 @@
 <?php
 $to = 'liammatulick@gmail.com'; 
 $subject = 'Customer Support';
-$FullName = $_POST['FullName']
-$Email = $_POST['Email']
-$Info = $_POST['Info']
+$FullName = $_POST['FullName'];
+$Email = $_POST['Email'];
+$Info = $_POST['Info'];
 $message = "
 <html>
 <body>
-  <p>Name: </p>{$FullName}</p>
-  <p>{$Email}<p>
-  <p>{$Info}</p>
+  <p>Name: </p>$FullName</p>
+  <p>$Email<p>
+  <p>$Info</p>
 
 </body>
 </html>
