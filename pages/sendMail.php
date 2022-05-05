@@ -1,5 +1,5 @@
 <?php
-$to = 'ufl.vapi@gmail.com'; 
+$to = 'ufl.vaping@gmail.com'; 
 $subject = 'Customer Support';
 $FullName = $_POST['FullName'];
 $Email = $_POST['Email'];
@@ -57,7 +57,7 @@ if (!$success) {
 
 <body>
   <section>
-    <div  class="contactform">
+    <div  class="FormContact">
     <span><a>Thank you 
       <?php 
       echo $_POST['FullName']  ;
