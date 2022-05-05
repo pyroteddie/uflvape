@@ -52,7 +52,7 @@ if (!$success) {
 <body>
   <section>
     <div  class="contactform">
-      
+      <?php echo '<h1>'$_POST['FullN'] '</h1>' ?>
     </div >
   </section>
 
