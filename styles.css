@@ -1,4 +1,5 @@
 
+
 body{ 
 background-color: #000000 ;
 font-family: Gagalin;
@@ -174,6 +175,11 @@ border: 2px red solid;
 	color: red;
 	background-color: #5555;
 }
+.ProductBut:active{
+	animation: pop 0.3s linear 1;
+  border-radius:5px;
+}
+
 
 .ProductTitle{
 	font-size: 30px;
@@ -220,6 +226,22 @@ footer{
 	margin-top: 15px;
 
 }
+.RemoveButCart{
+	color: red;
+	background-color: #5555;
+	border: 1px solid #5555;
+	
+}
+.RemoveButCart:hover{
+	color: white;
+	background-color: #5555;
+	border: 1px red solid;
+}
+.RemoveButCart:active{
+	animation: pop 0.3s linear 1;
+  border-radius:5px;
+}
+
 .ProductbuyBut{
 	margin-top: 40px;
 	border: 0;
@@ -237,6 +259,15 @@ footer{
 	border: 1px white solid;
 	
 }
+.ProductbuyBut:active{
+	animation: pop 0.3s linear 1;
+  border-radius:5px;
+}
+
+@keyframes pop{
+	50%  {transform: scale(1.1);}
+}
+
 .ProductSection{
 	border-top: 2px red solid;
 	background-color: #111111;
@@ -374,7 +405,14 @@ text-align: center;
 
 }
 @media screen and (max-width: 800px) {
-
+	.ProductInformationBar {
+    width: 90%;
+    height: 40px;
+    align-items: end;
+    display: block;
+    justify-content: center;
+    margin: auto;
+}
 	section{
 		width: 100%;
     padding-left: 0px;
@@ -482,7 +520,7 @@ text-align: center;
 		display: none;
 	}
 	footer{
-		width: 60%;
+		width: 100%;
 		margin: auto;
 		display: flex;
 		align-self: flex-end;
@@ -495,7 +533,7 @@ text-align: center;
 		height: 200px;
 	}
 	.ProductHead{
-		margin-left: 5px;
+		margin-left: 0px;
     height: 500px;
 	}
 	.ProductInformation{

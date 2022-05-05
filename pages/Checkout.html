@@ -44,7 +44,7 @@
 
           <div style="margin:5px"> 
             <label>Discount Code</label><br>
-            <input id="DiscountInput" type="text" placeholder="Discount Code"/><button onclick="AddDiscount()">Add</button>
+            <input id="DiscountInput" type="text" placeholder="Discount Code"/><button  class='RemoveButCart' onclick="AddDiscount()">Add</button>
           </div>
         <div id="paypal-button-container"></div>
       </div>
@@ -102,7 +102,7 @@
     document.getElementById("ProductCartList").innerHTML = "";
     var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
-      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p></div> <button onclick='removeItemCart("+ i +")'>Remove</button></div>"
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p><button class='RemoveButCart' onclick='removeItemCart("+ i +")'>Remove</button></div> </div>"
       TotalSum = TotalSum + Number(cart[i].Price);
     }
     TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
@@ -113,7 +113,7 @@
 
     var cart = JSON.parse(sessionStorage.Cart);
     for(var i = 0 ; i<cart.length; i++){
-      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p></div><button onclick='removeItemCart("+ i +")'>Remove</button></div>"
+      document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p><button class='RemoveButCart' onclick='removeItemCart("+ i +")'>Remove</button></div></div>"
       TotalSum = TotalSum + Number(cart[i].Price);
     }
      TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
