@@ -387,7 +387,7 @@ Experimentalref.on('value', (snapshot) => {
 
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        document.getElementById("LabGallery").innerHTML += "<li onclick='ItemLabSelected("+ key +")'><img src= " + childData.Image + " style='width:150px;height:150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p>Rating: " + childData.Rating +"</p><p>$"+childData.Price+"</p</div></li>";
+        document.getElementById("LabGallery").innerHTML += "<li onclick='ItemLabSelected("+ key +")'><img src= " + childData.Image + " style='width:150px;height:150px'><div Class='container'><p style='font-size:20px;'>" + childData.Name +"</p><p class='Cardtitle'>"+ childData.About +"</p><p style='color:green'>Up: " + childData.Votes.Up +"</p><p style='color:crimson'>Down: " + childData.Votes.Down +"</p></div></li>";
     });
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject.name);

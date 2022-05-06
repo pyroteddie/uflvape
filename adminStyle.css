@@ -215,6 +215,29 @@ h1{
   font-size:20px;
   text-align: center;
 }
+.OrderCard{
+  display: none;
+    border: white solid 2px;
+    padding: 10;
+    margin: 10px;
+}
+.orderBox{
+  display: inline-grid;
+  margin-right: 45px;
+}
+.OrderHead{
+  width: 100%;
+  background: black;
+  padding-left: 15;
+  text-shadow: 2px 2px crimson;
+  border-bottom: 2px solid crimson;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+#OrderList{
+  min-height: 200px;
+}
+
 @media screen and (max-width: 800px) {
   h1{
     
@@ -296,7 +319,8 @@ h1{
     width: 100%;
   }
   .container{
-    width:100%
+    width:100%;
+    font-size: 16px;
   }
   .Cardtitle{
     margin-top: 5px;
