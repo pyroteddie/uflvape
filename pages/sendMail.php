@@ -34,7 +34,7 @@ if (!$success) {
 <html>
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UVJ</title>
+<title>UFL Vaping</title>
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <script src="../script.js"></script>
   <style>
@@ -46,7 +46,7 @@ if (!$success) {
       font-size:40px;
     }
   </style>
-<h1 >UFL Vape</h1>
+<h1 >UFL Vaping</h1>
   <div class="NavBar">
     <button class="NavBarButton" onclick="location.href='../index.html'">HOME</button>
     <button class="NavBarButton" onclick="location.href='../pages/ComingSoon.html'">COMING SOON</button>
