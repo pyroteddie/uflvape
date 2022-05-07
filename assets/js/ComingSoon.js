@@ -29,6 +29,7 @@ function SendVoteU(ID){
   });
   document.getElementById(ID).style.display = 'none';
 }
+
 function SendVoteD(ID){
   votes = JSON.parse(sessionStorage.VotedFor);
   votes.push({'ProductID':ID,'Voted':'Yes'});
@@ -40,6 +41,7 @@ function SendVoteD(ID){
   });
   document.getElementById(ID).style.display = 'none';
 }
+
 window.addEventListener('storage', () => {
       var VotesSess = JSON.parse(sessionStorage.VotedFor)
      VotesSess.forEach(HideVote);
