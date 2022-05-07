@@ -94,6 +94,7 @@
     var cart = JSON.parse(sessionStorage.Cart);
     cart.splice(index, 1);
     sessionStorage.setItem('Cart', JSON.stringify(cart));
+    ananie.logEvent(firebase.analytics.EventName.REMOVE_FROM_CART,  cart)
     PopulateCarList();
    }
 

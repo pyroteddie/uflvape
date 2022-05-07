@@ -25,6 +25,7 @@ function AddToCart(ID){
         }
       cart.push(item);
       sessionStorage.setItem('Cart',JSON.stringify(cart));
+      ananie.logEvent(firebase.analytics.EventName.ADD_TO_CART,  cart)
     }else{
       if (cart.some(Cart => Cart.name === data.Name)) {
           cart.forEach(Item =>{
@@ -35,6 +36,7 @@ function AddToCart(ID){
               Item.quantity = itemQuantity;
               Item.Price = itemPrice;
               sessionStorage.setItem('Cart',JSON.stringify(cart))
+              ananie.logEvent(firebase.analytics.EventName.ADD_TO_CART,  cart)
               }
             });
       }else{
@@ -52,6 +54,7 @@ function AddToCart(ID){
         cart.push(item);
         //console.log(cart)
         sessionStorage.setItem('Cart',JSON.stringify(cart))
+        ananie.logEvent(firebase.analytics.EventName.ADD_TO_CART,  cart)
       }
    }
   });
