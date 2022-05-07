@@ -103,7 +103,7 @@ HomePageText.on('value', (snapshot) => {
   document.getElementById("ProductImage").src = data.Image;
   document.getElementById("DetailsMenu1").innerHTML = "<p>"+data.About+"</p>";
   document.getElementById("DetailsMenu2").innerHTML = "<p class='IngreClass'>"+data.Ingredients+"</p>";
-  document.getElementById("TitlePage").innerHTML = "data.Name";
+  document.getElementById("TitlePage").innerHTML = data.Name;
 
   //
   document.getElementById("StarRating").value = data.Rating;
