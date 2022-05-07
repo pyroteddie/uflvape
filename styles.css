@@ -326,10 +326,12 @@ ul.FavGall li {
   margin-top: 5px;
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1; 
-  width: 100%;
+  width: -webkit-fill-available;
   transition: .5s ease;
   opacity:0;
   font-size: 14px;
+	margin:5px;
+
 
 }
 .Cartimage{
