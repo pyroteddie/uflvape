@@ -25,7 +25,12 @@ background-position: center; /* Center the image */
 	margin: 20px;
 	white-space: pre-line
 }
-
+.TYMessage{
+	display: inline-grid;
+    justify-items: center;
+    margin: 20px;
+    white-space: pre-line;
+}
 .NavBar{
 	background-color: #1d1d1d;
 	width: 60%;

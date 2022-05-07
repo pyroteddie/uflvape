@@ -87,7 +87,7 @@ function Fruitsunhover(element) {
 }
 
 window.addEventListener('storage', () => {
-  console.log(sessionStorage.Cart);
+  
   if(sessionStorage.Cart === undefined || ''){
     sessionStorage.setItem('Cart',JSON.stringify([]))
   }else{
@@ -98,11 +98,11 @@ window.addEventListener('storage', () => {
     
  
     if(cart.length >= 1){
-      console.log("true")
+      
       document.getElementById('CartLength').innerHTML = cart.length
       //sessionStorage.setItem('Cart', [])
     }else{
-      console.log("False")
+      
       document.getElementById('CartLength').innerHTML = cart.length
       sessionStorage.setItem('Cart', JSON.stringify([]))
       sessionStorage.DiscountApplied = 'false'

@@ -153,13 +153,12 @@
         onApprove: (data, actions) => {
           return actions.order.capture().then(function(orderData) {
             // Successful capture! For dev/demo purposes:
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             const transaction = orderData.purchase_units[0].payments.captures[0];
             var AddOrder = firebase.database().ref('Orders/'+ orderData.id);
-                AddOrder.set({
-                  orderData
-                });
-
+                AddOrder.set({orderData});
+                ananie.logEvent(firebase.analytics.EventName.PURCHASE ,  JSON.parse(sessionStorage.Cart))
+                location.href='../pages/CheckOutComplete.html'
           });
         }
       }).render('#paypal-button-container');
