@@ -1,7 +1,7 @@
 <html>
  <head>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UFL Vaping</title>
+<title id='TitlePage'>UFL Vaping </title>
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="../script.js"></script>
@@ -103,7 +103,9 @@ HomePageText.on('value', (snapshot) => {
   document.getElementById("ProductImage").src = data.Image;
   document.getElementById("DetailsMenu1").innerHTML = "<p>"+data.About+"</p>";
   document.getElementById("DetailsMenu2").innerHTML = "<p class='IngreClass'>"+data.Ingredients+"</p>";
+  document.getElementById("TitlePage").innerHTML = "data.Name";
 
+  //
   document.getElementById("StarRating").value = data.Rating;
   for (var i=0;i< 5; i++){
     if(i < data.Rating){
