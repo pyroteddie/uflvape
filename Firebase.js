@@ -19,6 +19,6 @@ PostageFee.on('value', (snapshot) => {
  
 });
 
-var PageTitle = document.getElementsByTagName("title")[0].innerHTML;
+var PageTitle = document.getElementById("TitlePage").innerHTML;
 
 var pageAny = ananie.logEvent("page_view" ,  { page_location: window.location.href , page_path: window.location.pathname , page_title: PageTitle })
