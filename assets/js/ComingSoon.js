@@ -22,26 +22,23 @@ function SendVoteU(ID){
   votes = JSON.parse(sessionStorage.VotedFor);
   votes.push({'ProductID':ID,'Voted':'Yes'});
   sessionStorage.setItem('VotedFor', JSON.stringify(votes));
-
   var VotesUpText = firebase.database().ref('Experimental/'+ID+'/Votes');
   VotesUpText.once('value', (snapshot) => {
   const data = snapshot.val();
-  VotesUpText.update({ Up: data.Up + 1});
- 
-});
+  VotesUpText.update({ Up: data.Up + 1}); 
+  });
+  document.getElementById(ID).style.display = 'none';
 }
 function SendVoteD(ID){
   votes = JSON.parse(sessionStorage.VotedFor);
   votes.push({'ProductID':ID,'Voted':'Yes'});
   sessionStorage.setItem('VotedFor', JSON.stringify(votes));
-
   var VotesDownText = firebase.database().ref('Experimental/'+ID+'/Votes');
   VotesDownText.once('value', (snapshot) => {
     const data = snapshot.val();
     VotesDownText.update({ Down: data.Down + 1});
-    
   });
-
+  document.getElementById(ID).style.display = 'none';
 }
 window.addEventListener('storage', () => {
       var VotesSess = JSON.parse(sessionStorage.VotedFor)
