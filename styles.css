@@ -212,6 +212,17 @@ footer{
 	align-self: flex-end;
 	height: 150px;
 }
+.footerItem{
+margin: 10px;
+}
+.FooterLinks{
+	color:white;
+	font-size: 14px;
+}
+.FooterLinks:hover{
+	color:red;
+}
+
 .checked {
   color: red;
 }
@@ -279,6 +290,8 @@ footer{
 	border-top: 2px red solid;
 	background-color: #111111;
 	border-bottom: 1px white solid;
+	align-items: center;
+	justify-content: space-evenly;
 }
 .SignInBox{
 	display: grid;
