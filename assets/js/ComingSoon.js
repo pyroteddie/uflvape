@@ -26,10 +26,11 @@ function SendVoteU(ID){
   VotesUpText.once('value', (snapshot) => {
   const data = snapshot.val();
   VotesUpText.update({ Up: data.Up + 1}); 
-  });
-  document.getElementById(ID).style.display = 'none';
   ananie.logEvent("The_Lab_Votes" ,  { Name: data.Name , Vote:'Up' , webBrowser: navigator.appName , VoteTime: navigator.appName})
 
+  });
+  document.getElementById(ID).style.display = 'none';
+  
 }
 
 function SendVoteD(ID){
@@ -40,10 +41,11 @@ function SendVoteD(ID){
   VotesDownText.once('value', (snapshot) => {
     const data = snapshot.val();
     VotesDownText.update({ Down: data.Down + 1});
+    ananie.logEvent("The_Lab_Votes" ,  { Name: data.Name , Vote:'Down' , webBrowser: navigator.appName , VoteTime: navigator.appName})
+
   });
   document.getElementById(ID).style.display = 'none';
-  ananie.logEvent("The_Lab_Votes" ,  { Name: data.Name , Vote:'Down' , webBrowser: navigator.appName , VoteTime: navigator.appName})
-}
+  }
 
 window.addEventListener('storage', () => {
       var VotesSess = JSON.parse(sessionStorage.VotedFor)
