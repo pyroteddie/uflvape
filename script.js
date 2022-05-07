@@ -25,7 +25,7 @@ function Menu3Show() {
 function ProductPage(ProductID){
   var ItemId = ProductID;
   sessionStorage.setItem('ID',ItemId)
-  location.href="./pages/productPage.html";
+  location.href="../pages/productPage.html";
 
 }
 
