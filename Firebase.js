@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+const ananie = firebase.analytics();
 
 var PostageFee = firebase.database().ref('Fees/Postage/');
 PostageFee.on('value', (snapshot) => {
@@ -18,3 +18,5 @@ PostageFee.on('value', (snapshot) => {
   sessionStorage.setItem('Postage', data.Value)
  
 });
+
+var pageAny = ananie.logEvent("page_view" ,  { page_location ?: window.location.href , page_path ?: window.location.pathname , page_title ?: document.getElementsByTagName("title")[0].innerHTML })
