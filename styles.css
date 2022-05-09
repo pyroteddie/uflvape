@@ -18,6 +18,11 @@ background-position: center; /* Center the image */
 	justify-content: center;
 	margin: 20px;
 }
+.FooterTitle{
+	font-size:18px; 
+	margin-bottom: 5px; 
+	color:crimson;
+}
 
 .InfomationSec{
 	display: inline-grid;
