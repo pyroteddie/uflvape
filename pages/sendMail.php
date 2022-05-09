@@ -35,7 +35,7 @@ if (!$success) {
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UFL Vaping</title>
-<link rel="stylesheet" type="text/css" href="../styles.css">
+<link rel="stylesheet" type="text/css" href="../styles.css?t=5566">
 <script src="../script.js"></script>
   <style>
     @font-face { font-family: Gagalin; src: url('https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/fonts/Gagalin.otf?raw=true') format('opentype')}
