@@ -98,6 +98,7 @@ dt:hover{
 	padding-bottom: 20px;
 	width: 60%;
 	margin: auto;
+	white-space: pre-line;
 
 }
 p{
@@ -473,7 +474,7 @@ text-align: center;
     padding-bottom: 20px;
     width: 90%;
     margin: auto;
-	
+		white-space: pre-line;
 	}
 	p{
 		padding:0;
@@ -756,7 +757,7 @@ text-align: center;
     padding-bottom: 20px;
     width: 90%;
     margin: auto;
-	
+		white-space: pre-line;
 	}
 	p{
 		padding:0;
