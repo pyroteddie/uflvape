@@ -117,7 +117,12 @@ HomePageText.on('value', (snapshot) => {
 
   }
   document.getElementById("ProductDetailsContainer").innerHTML += "<br><p>$ "+ data.Price+" - 100ml </p>"
-  document.getElementById("ProductDetailsContainer").innerHTML += '<button class="ProductbuyBut" onclick="AddToCart('+ ProID +')">Add to Cart</button>'
+console.log(data.Quantity)
+  if(data.Quantity <= 0 ){
+    document.getElementById("ProductDetailsContainer").innerHTML += '<button class="ProductbuyBut" onclick="AddToCart('+ ProID +', "Yes")">Pre-Order</button>'
+  }else{
+    document.getElementById("ProductDetailsContainer").innerHTML += '<button class="ProductbuyBut" onclick="AddToCart('+ ProID +')">Add to Cart</button>'
+  }
   //ProductName
   //ProductImage
   //StarRating

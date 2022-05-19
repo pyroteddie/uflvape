@@ -390,7 +390,7 @@ h1{
   margin-right: 45px;
 }
 .OrderHead{
-  width: 100%;
+  width: -webkit-fill-available;
   background: black;
   padding-left: 15;
   text-shadow: 2px 2px crimson;

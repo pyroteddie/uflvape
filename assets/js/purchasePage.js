@@ -5,7 +5,7 @@ if(sessionStorage.Cart === undefined){
 
 }
 
-function AddToCart(ID){
+function AddToCart(ID, Preorder){
   cart = JSON.parse(sessionStorage.Cart);
   var ProductInfoCart = firebase.database().ref('Products/' + ID);
   ProductInfoCart.once('value', (snapshot) => {
@@ -13,7 +13,8 @@ function AddToCart(ID){
     var item = [];
     if(cart.length === 0){
       item = {
-        "name": data.Name,
+        "name": data.Name ,
+        "PreOrder":Preorder,
         "description": data.ID,
         "Image" :data.Image,
         "Price": data.Price,
@@ -41,7 +42,8 @@ function AddToCart(ID){
             });
       }else{
         item = {
-          "name": data.Name,
+          "name": data.Name ,
+          "PreOrder":Preorder,
           "description": data.ID,
           "Image" :data.Image,
           "Price": data.Price,

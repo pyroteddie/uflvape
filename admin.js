@@ -121,6 +121,8 @@ function ItemSelected(ID){
     document.getElementById("edProCat").value = data.Category;
     document.getElementById("edProPrice").value = data.Price;
     document.getElementById('edProFav').Value = data.Fav;
+    document.getElementById('edProQuanity').Value = data.Quantity;
+    
 
   });
 
@@ -188,6 +190,7 @@ function AddProduct(){
   About: document.getElementById("AddProDis").value,
   Ingredients: document.getElementById("AddProIng").value,
   Price: document.getElementById("AddProPrice").value,
+  Quantity: document.getElementById("AddProQuanity").value,
   Fav: document.getElementById('AddProFav').value,
   ID: document.getElementById("AddProID").value,
   Rating: document.getElementById("AddProRate").value,
