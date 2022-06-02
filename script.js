@@ -90,12 +90,13 @@ window.addEventListener('sessionStorage', () => {
   console.log("CartLength: " & sessionStorage.Cart)
   if(sessionStorage.Cart === undefined || ''){
     sessionStorage.setItem('Cart',JSON.stringify([]))
+    document.getElementById('CartLength').innerHTML = 0;
   }else{
   
   
     cart = JSON.parse(sessionStorage.Cart);
 
-    console.log("Cart Length:" & cart.length)
+    console.log("Cart Length: " & cart.length)
  
     if(cart.length >= 1){
       

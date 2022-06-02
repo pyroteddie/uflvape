@@ -60,6 +60,30 @@ function AddToCart(ID, Preorder){
       }
    }
   });
+
+  if(sessionStorage.Cart === undefined || ''){
+    sessionStorage.setItem('Cart',JSON.stringify([]))
+    document.getElementById('CartLength').innerHTML = 0;
+  }else{
+  
+  
+    cart = JSON.parse(sessionStorage.Cart);
+
+    console.log("Cart Length: " & cart.length)
+ 
+    if(cart.length >= 1){
+      
+      document.getElementById('CartLength').innerHTML = cart.length
+      //sessionStorage.setItem('Cart', [])
+    }else{
+      
+      document.getElementById('CartLength').innerHTML = 0;
+      sessionStorage.setItem('Cart', JSON.stringify([]));
+      sessionStorage.DiscountApplied = 'false'
+      sessionStorage.setItem('TotalDiscount', 0);
+    }
+  }
+
 }
 
 var Menuquery = firebase.database().ref("Products").orderByKey();
