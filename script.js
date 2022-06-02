@@ -86,6 +86,8 @@ function Fruitsunhover(element) {
   element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/6.png');
 }
 var cart = 0;
+
+
 window.addEventListener('sessionStorage', () => {
   console.log("CartLength: " & sessionStorage.Cart)
   if(sessionStorage.Cart === undefined || ''){
@@ -111,4 +113,6 @@ window.addEventListener('sessionStorage', () => {
     }
   }
 });
+cart = JSON.parse(sessionStorage.Cart);;
+document.getElementById('CartLength').innerHTML = cart.length;
 
