@@ -86,7 +86,7 @@ function Fruitsunhover(element) {
   element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/6.png');
 }
 var cart = 0;
-window.addEventListener('storage', () => {
+window.addEventListener('sessionStorage', () => {
   console.log("CartLength: " & sessionStorage.Cart)
   if(sessionStorage.Cart === undefined || ''){
     sessionStorage.setItem('Cart',JSON.stringify([]))
