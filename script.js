@@ -95,7 +95,7 @@ window.addEventListener('sessionStorage', () => {
   
     cart = JSON.parse(sessionStorage.Cart);
 
-    console.log(cart.length)
+    console.log("Cart Length:" & cart.length)
  
     if(cart.length >= 1){
       
