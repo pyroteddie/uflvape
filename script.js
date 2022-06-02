@@ -103,8 +103,8 @@ window.addEventListener('storage', () => {
       //sessionStorage.setItem('Cart', [])
     }else{
       
-      document.getElementById('CartLength').innerHTML = cart.length
-      sessionStorage.setItem('Cart', JSON.stringify([]))
+      document.getElementById('CartLength').innerHTML = 0;
+      sessionStorage.setItem('Cart', JSON.stringify([]));
       sessionStorage.DiscountApplied = 'false'
       sessionStorage.setItem('TotalDiscount', 0);
     }
