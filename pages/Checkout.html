@@ -15,8 +15,6 @@
     }
     
     </style>
-    
-
     <h1>UFL Vaping</h1>
     <div class="NavBar">
     <button class="NavBarButton" onclick="location.href='../index.html'">HOME</button>
@@ -56,10 +54,10 @@
 
 
    const d = new Date();
-   var NowDate = d.getDate() +"/" + (d.getMonth() + 1) +"/" + d.getFullYear();
-   let TotalSum = 0;
-   let TotalSumShipp = 0;
-
+    var NowDate = d.getDate() +"/" + (d.getMonth() + 1) +"/" + d.getFullYear();
+    let TotalSum = 0;
+    let TotalSumShipp = 0;
+    let NewShippingCost = Number(sessionStorage.Postage);
 
    function AddDiscount() {
     var discountCode = document.getElementById('DiscountInput').value;
@@ -80,7 +78,7 @@
               sessionStorage.setItem('TotalDiscount', TotalDiscount);
               sessionStorage.setItem('Cart', JSON.stringify(Cart));
               sessionStorage.setItem('DiscountApplied','true');
-              TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
+              TotalSumShipp = TotalSum + NewShippingCost;
               console.log(TotalSumShipp);
               console.log(TotalSum);
               console.log(JSON.stringify(Cart));
@@ -99,6 +97,8 @@
    }
 
   function PopulateCarList(){
+    console.log("CartTotal: " & TotalSum);
+
     TotalSum = 0;
     document.getElementById("ProductCartList").innerHTML = "";
     var cart = JSON.parse(sessionStorage.Cart);
@@ -106,9 +106,17 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p><button class='RemoveButCart' onclick='removeItemCart("+ i +")'>Remove</button></div> </div>"
       TotalSum = TotalSum + Number(cart[i].Price);
     }
-    TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
+    console.log("CartTotal: " & TotalSum);
+
+    if(TotalSum > 100){
+      NewShippingCost = 0;
+    }else{
+      NewShippingCost = Number(sessionStorage.Postage);
+    }
+
+    TotalSumShipp = TotalSum + NewShippingCost;
     document.getElementById("TotalSum").innerHTML = TotalSum;
-    document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
+    document.getElementById("PostageFee").innerHTML = NewShippingCost;
     document.getElementById("TotalDiscount").innerHTML = sessionStorage.TotalDiscount;
    }
 
@@ -117,9 +125,15 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p><button class='RemoveButCart' onclick='removeItemCart("+ i +")'>Remove</button></div></div>"
       TotalSum = TotalSum + Number(cart[i].Price);
     }
-     TotalSumShipp = TotalSum + Number(sessionStorage.Postage);
+    console.log("CartTotal: " & TotalSum);
+    if(TotalSum > 100){
+      NewShippingCost = 0;
+    }else{
+      NewShippingCost = Number(sessionStorage.Postage);
+    }
+     TotalSumShipp = TotalSum + NewShippingCost;
      document.getElementById("TotalSum").innerHTML = TotalSum;
-     document.getElementById("PostageFee").innerHTML = sessionStorage.Postage;
+     document.getElementById("PostageFee").innerHTML = NewShippingCost;
     
              
 
@@ -141,7 +155,7 @@
                     },
                       "shipping": {
                       "currency_code": "AUD",
-                      "value": sessionStorage.Postage
+                      "value": NewShippingCost
                     },
                   }
                 },
