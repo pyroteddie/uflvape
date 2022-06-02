@@ -85,7 +85,7 @@ function Fruitshover(element) {
 function Fruitsunhover(element) {
   element.setAttribute('src', 'https://raw.githubusercontent.com/pyroteddie/uflvape/master/assets/6.png');
 }
-var cart = JSON.parse(sessionStorage.Cart);
+var cart = 0;
 window.addEventListener('storage', () => {
   
   if(sessionStorage.Cart === undefined || ''){
