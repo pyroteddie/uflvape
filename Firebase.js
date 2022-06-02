@@ -8,17 +8,15 @@ const firebaseConfig = {
   appId: "1:106139754407:web:83bc6f215d35d898b4a082",
   measurementId: "G-T1SKXL2QX2"
 };
-
 firebase.initializeApp(firebaseConfig);
 const ananie = firebase.analytics();
-
 var PostageFee = firebase.database().ref('Fees/Postage/');
 PostageFee.on('value', (snapshot) => {
   const data = snapshot.val();
   sessionStorage.setItem('Postage', data.Value)
- 
-});
+ });
 
-var PageTitle = document.getElementById("TitlePage").innerHTML;
-
-ananie.logEvent("page_view" ,  { page_location: window.location.href , page_path: window.location.pathname , page_title: PageTitle })
+window.addEventListener('load', function () {
+  //var PageTitle = document.getElementById("TitlePage").innerHTML;
+  //ananie.logEvent("page_view" ,  { page_location: window.location.href , page_path: window.location.pathname , page_title: PageTitle })
+})
