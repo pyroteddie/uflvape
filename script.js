@@ -113,6 +113,9 @@ window.addEventListener('sessionStorage', () => {
     }
   }
 });
-cart = JSON.parse(sessionStorage.Cart);;
+window.addEventListener("DOMContentLoaded", function () {
+  cart = JSON.parse(sessionStorage.Cart);
 document.getElementById('CartLength').innerHTML = cart.length;
+})
+
 
