@@ -117,6 +117,8 @@
     document.getElementById("TotalSum").innerHTML = TotalSum;
     document.getElementById("PostageFee").innerHTML = NewShippingCost;
     document.getElementById("TotalDiscount").innerHTML = sessionStorage.TotalDiscount;
+    var cart = JSON.parse(sessionStorage.Cart);
+    document.getElementById('CartLength').innerHTML = cart.length;
    }
 
     var cart = JSON.parse(sessionStorage.Cart);
