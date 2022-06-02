@@ -87,7 +87,7 @@ function Fruitsunhover(element) {
 }
 var cart = 0;
 window.addEventListener('storage', () => {
-  
+  console.log(sessionStorage.Cart)
   if(sessionStorage.Cart === undefined || ''){
     sessionStorage.setItem('Cart',JSON.stringify([]))
   }else{
