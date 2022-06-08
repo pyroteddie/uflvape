@@ -178,7 +178,7 @@ function AddProduct(){
   });
 }
 
-function UpdateProduct(){
+async function UpdateProduct(){
   var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
   GetEditProductInfo.set({
   Name: document.getElementById("edProName").value,
@@ -192,18 +192,6 @@ function UpdateProduct(){
   Quantity: document.getElementById("edProQuanity").value,
   Image: ImgURLUploaded2 || document.getElementById("edProImg").src ,
 });
-document.getElementById("edProImg").src = "";
-document.getElementById("edProName").value = "";
-document.getElementById("edProDis").value = "";
-document.getElementById("edProIng").value = "";
-document.getElementById("edProID").value = "";
-document.getElementById("edProRate").value = "";
-document.getElementById("edProCat").value = "";
-document.getElementById("edProPrice").value = "";
-document.getElementById('edProFav').Value = "";
-document.getElementById('edProQuanity').Value = "";
-
-
 }
 
 function HidePEditCard(){
