@@ -63,17 +63,10 @@ Productref.on('value', (snapshot) => {
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject.name);
 });
-
-
-
-//remove Discount Code
-
 function RemoveDiscount(Key){
   var GetDicCode = firebase.database().ref('Discounts/' + Key);
   GetDicCode.remove();
 }
-
-
 const ref = firebase.database().ref('Discounts');
 // Attach an asynchronous callback to read the data at our posts reference
 ref.on('value', (snapshot) => {
@@ -90,7 +83,6 @@ ref.on('value', (snapshot) => {
 }, (errorObject) => {
   console.log('The read failed: ' + errorObject.name);
 });
-
 // add Discount Code
 function AddDiscountCode(){
   var CodeName = document.getElementById("DisCodeName").value
@@ -101,11 +93,8 @@ function AddDiscountCode(){
     StartDate: document.getElementById("DisCodeStart").value,
     EndDate: document.getElementById("DisCodeFinish").value,
     Valid: document.getElementById("DisCodeValid").value,
-    
     });
- 
-}
-
+  }
 function ItemSelected(ID){
     ProductSelected = ID;
     var GetEditProductInfo = firebase.database().ref('Products/' + ProductSelected);
@@ -122,14 +111,9 @@ function ItemSelected(ID){
     document.getElementById("edProPrice").value = data.Price;
     document.getElementById('edProFav').Value = data.Fav;
     document.getElementById('edProQuanity').Value = data.Quantity;
-    
-
   });
-
   return ProductSelected
 }
-
-
 var uploader1 = document.getElementById('Adduploader');
 var fileButton = document.getElementById('AddProImgUpload');
 fileButton.addEventListener('change', function(e){
@@ -139,10 +123,7 @@ fileButton.addEventListener('change', function(e){
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
     uploader1.value = percentage;
-
   }, function error(err) {
-
-
   },function complete() {
   task.snapshot.ref.getDownloadURL().then((downloadURL) => {
     ImgURLUploaded1= downloadURL;
@@ -150,8 +131,6 @@ fileButton.addEventListener('change', function(e){
   });
   });
 }); 
-
-
 var uploader2 = document.getElementById('uploader2');
 var fileButton = document.getElementById('edProImgUpload');
 fileButton.addEventListener('change', function(e){
@@ -161,7 +140,6 @@ fileButton.addEventListener('change', function(e){
   task.on('state_changed', function progress(snapshot) {
     var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
     uploader2.value = percentage;
-
   }, function error(err) {
 
 
@@ -211,6 +189,7 @@ function UpdateProduct(){
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
+  Quantity: document.getElementById("eProQuanity").value,
   Image: ImgURLUploaded2 || document.getElementById("edProImg").src ,
 });
 document.getElementById("edProImg").src = "";
