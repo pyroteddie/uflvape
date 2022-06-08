@@ -189,7 +189,7 @@ function UpdateProduct(){
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
-  Quantity: document.getElementById("eProQuanity").value,
+  Quantity: document.getElementById("edProQuanity").value,
   Image: ImgURLUploaded2 || document.getElementById("edProImg").src ,
 });
 document.getElementById("edProImg").src = "";
@@ -201,6 +201,7 @@ document.getElementById("edProRate").value = "";
 document.getElementById("edProCat").value = "";
 document.getElementById("edProPrice").value = "";
 document.getElementById('edProFav').Value = "";
+document.getElementById('edProQuanity').Value = "";
 
 
 }
