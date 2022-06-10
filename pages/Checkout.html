@@ -60,9 +60,11 @@
 
    function AddDiscount() {
     var discountCode = document.getElementById('DiscountInput').value;
-    var DisountInfo = firebase.database().ref('Discounts/'+discountCode);
+    console.log(discountCode.toUpperCase())
+    var DisountInfo = firebase.database().ref('Discounts/'+discountCode.toUpperCase());
         DisountInfo.on('value', (snapshot) => {
           const data = snapshot.val();
+          console.log(data)
           var discountAdd = data.Discount;
           if (NowDate < data.EndDate & sessionStorage.DiscountApplied != 'true'){
             TotalSum = 0;
@@ -72,15 +74,12 @@
              Cart[i].unit_amount.value = Math.round((Cart[i].unit_amount.value - (Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
              TotalDiscount  = TotalDiscount +  Math.round(((Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
              TotalSum = TotalSum + Number(Cart[i].unit_amount.value);
-             console.log(cart[i].unit_amount.value);
+             
             }
               sessionStorage.setItem('TotalDiscount', TotalDiscount);
               sessionStorage.setItem('Cart', JSON.stringify(Cart));
               sessionStorage.setItem('DiscountApplied','true');
-              TotalSumShipp = TotalSum + NewShippingCost;
-              console.log(TotalSumShipp);
-              console.log(TotalSum);
-              console.log(JSON.stringify(Cart));
+              TotalSumShipp = TotalSum + NewShippingCost
               PopulateCarList();
             }else{
             }

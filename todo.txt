@@ -1,8 +1,3 @@
 
 -------TODO Website---------
-add thank for your purhcase - clear cart
-
-add logic for completed order button - admin page
-add soicals and fix footers 
-
-footer
+Add Custom Box item to build custom Box of 3 30ml testers. 
