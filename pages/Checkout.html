@@ -74,7 +74,7 @@
              Cart[i].unit_amount.value = Math.round((Cart[i].unit_amount.value - (Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
              TotalDiscount  = TotalDiscount +  Math.round(((Cart[i].unit_amount.value * discountAdd) + Number.EPSILON) * 100) / 100;
              TotalSum = TotalSum + Number(Cart[i].unit_amount.value);
-             
+            
             }
               sessionStorage.setItem('TotalDiscount', TotalDiscount);
               sessionStorage.setItem('Cart', JSON.stringify(Cart));
