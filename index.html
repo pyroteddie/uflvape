@@ -91,6 +91,23 @@
 <a class="FooterLinks" onclick="location.href='./ContactUs.html'">Contact Us</a><br>
 </div>
 </footer>
+
+<script>
+if(sessionStorage.Cart === undefined || ''){
+    sessionStorage.setItem('Cart',JSON.stringify([]))
+    document.getElementById('CartLength').innerHTML = 0;
+  }else{
+    cart = JSON.parse(sessionStorage.Cart);
+    if(cart.length >= 1){ 
+      document.getElementById('CartLength').innerHTML = cart.length
+    }else{
+      document.getElementById('CartLength').innerHTML = 0;
+      sessionStorage.setItem('Cart', JSON.stringify([]));
+      sessionStorage.DiscountApplied = 'false'
+      sessionStorage.setItem('TotalDiscount', 0);
+    }
+  }
+</script>
 </html>
 
 

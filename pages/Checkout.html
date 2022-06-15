@@ -39,10 +39,14 @@
           <p>Discount: $ <a id='TotalDiscount'></a></p>
         </div> 
 
-          <div style="margin:5px"> 
-            <label>Discount Code</label><br>
-            <input id="DiscountInput" type="text" placeholder="Discount Code"/><button  class='RemoveButCart' onclick="AddDiscount()">Add</button>
-          </div>
+        <div style="margin:5px"> 
+          <label>Discount Code</label><br>
+          <input id="DiscountInput" type="text" placeholder="Discount Code"/><button  class='RemoveButCart' onclick="AddDiscount()">Add</button>
+        </div>
+        <div style="margin:5px"> 
+          <label>Post Code</label><br>
+          <input id="PostCodeInput" type="text" placeholder="Post Code"/><button  class='RemoveButCart' onclick="AddPostcode()">Add</button>
+        </div>
         <div id="paypal-button-container"></div>
       </div>
     </section>
@@ -50,7 +54,16 @@
 
 
    <script >
-
+   function AddPostcode(value){
+    let NewShippingCost = Number(sessionStorage.Postage);
+    var PostCode =  document.getElementById('PostCodeInput').value;
+    var local = 4670;
+      if(PostCode = local){
+        sessionStorage.setItem('Postage', 0);
+        document.getElementById('PostageFee').innerHTML = Number(sessionStorage.Postage);
+        //PostageFee
+      }
+   }
 
     const d = new Date();
     var NowDate = d.getDate() +"/" + (d.getMonth() + 1) +"/" + d.getFullYear();
@@ -60,11 +73,10 @@
 
    function AddDiscount() {
     var discountCode = document.getElementById('DiscountInput').value;
-    console.log(discountCode.toUpperCase())
     var DisountInfo = firebase.database().ref('Discounts/'+discountCode.toUpperCase());
         DisountInfo.on('value', (snapshot) => {
           const data = snapshot.val();
-          console.log(data)
+    
           var discountAdd = data.Discount;
           if (NowDate < data.EndDate & sessionStorage.DiscountApplied != 'true'){
             TotalSum = 0;
@@ -95,7 +107,6 @@
    }
 
   function PopulateCarList(){
-    console.log("CartTotal: " & TotalSum);
 
     TotalSum = 0;
     document.getElementById("ProductCartList").innerHTML = "";
@@ -104,7 +115,6 @@
       document.getElementById("ProductCartList").innerHTML += "<div class='CartItemCon'><img src= " + cart[i].Image + " alt=" + cart[i].Name +" Class='Cartimage'><div Class='Cart'><p> "+ cart[i].quantity+" X " + cart[i].name +"</p><p>$ " + cart[i].Price +"</p><button class='RemoveButCart' onclick='removeItemCart("+ i +")'>Remove</button></div> </div>"
       TotalSum = TotalSum + Number(cart[i].Price);
     }
-    console.log("CartTotal: " & TotalSum);
 
     if(TotalSum > 100){
       NewShippingCost = 0;
