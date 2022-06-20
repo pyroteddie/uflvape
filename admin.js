@@ -358,6 +358,8 @@ function UpdateLabProduct(){
   GetEditLabProductInfo.update({
     Name: document.getElementById("edLabProName").value,
     About: document.getElementById("edLabProDis").value,
+    Price: 0,
+    ID: document.getElementById("edLabProID").value,
     Ingredients: document.getElementById("edLabProIng").value,
     Category: document.getElementById("edLabProCat").value,
     Image: ImgURLUploaded4 || document.getElementById("edLabProImg").src ,
