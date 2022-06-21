@@ -323,7 +323,7 @@ function AddLabProduct(){
   ProLength = snapshot.val();
   var childern = snapshot.numChildren();
 
-  var GetEditProductInfo = firebase.database().ref('Experimental/'+ childern);
+  var GetEditProductInfo = firebase.database().ref('Experimental/'+ (childern + 1));
   GetEditProductInfo.set({
   Name: document.getElementById("AddLabProName").value,
   About: document.getElementById("AddLabProDis").value,
