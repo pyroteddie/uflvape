@@ -110,7 +110,7 @@ function ItemSelected(ID){
     document.getElementById("edProRate").value = data.Rating;
     document.getElementById("edProCat").value = data.Category;
     document.getElementById("edProPrice").value = data.Price;
-    document.getElementById('edProFav').Value = data.Fav;
+    document.getElementById('edProFav').checked = data.Fav;
     document.getElementById('edProQuanity').Value = data.Quantity;
   });
   return ProductSelected
@@ -171,7 +171,7 @@ function AddProduct(){
   Ingredients: document.getElementById("AddProIng").value,
   Price: document.getElementById("AddProPrice").value,
   Quantity: document.getElementById("AddProQuanity").value,
-  Fav: document.getElementById('AddProFav').value,
+  Fav: document.getElementById('AddProFav').checked,
   ID: document.getElementById("AddProID").value,
   Rating: document.getElementById("AddProRate").value,
   Category: document.getElementById("AddProCat").value,
@@ -187,7 +187,7 @@ async function UpdateProduct(){
   About: document.getElementById("edProDis").value,
   Ingredients: document.getElementById("edProIng").value,
   Price: document.getElementById("edProPrice").value,
-  Fav: document.getElementById('edProFav').value,
+  Fav: document.getElementById('edProFav').checked,
   ID: document.getElementById("edProID").value,
   Rating: document.getElementById("edProRate").value,
   Category: document.getElementById("edProCat").value,
