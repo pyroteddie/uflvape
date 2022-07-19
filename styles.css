@@ -308,6 +308,36 @@ margin: 10px;
 	display: grid;
   justify-content: center;
 }
+.Prooverlay{
+  font-size: 14px;
+}
+.ProsGallery{
+	display: flex;
+  text-align: -webkit-center;
+	padding-bottom: 10px;
+}
+.ProGall{
+	display: inline-block;
+}
+.ProImage{
+	display: block;
+	width: 200px;
+	height: 200px;
+}
+.Procontainer{
+	display: inline-block;
+    width: 150px;
+    min-width: 200px;
+    height: 250px;
+    font-size: 12px;
+    white-space: normal;
+    box-shadow: 0 4px 8px 0 rgb(223 4 4);
+    margin-left: 2px;
+    margin-right: 2px;
+    vertical-align: text-bottom;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
 
 ul.FavGall {
   margin: 0;
