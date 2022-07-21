@@ -37,7 +37,7 @@ Menuquery.once("value")
       var childData = childSnapshot.val();
       
       var itemCat = childData.Fav
-      if (itemCat === 'on' ){
+      if (itemCat === 'true' ){
         document.getElementById("FavGallery").innerHTML += "<li onclick='ProductPage("+ key +")' class='Favcontainer'><img src= " + childData.Image + " alt=" + childData.Name +" Class='Favimage'><div Class='Favoverlay'><p>" + childData.Name +"</p><p>$" + childData.Price +"</p></div></li >";
       
       } 
